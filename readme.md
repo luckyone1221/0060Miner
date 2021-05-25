@@ -1,4 +1,3 @@
-1. Отключил lazy плагин. Поставил  loading="lazy"
+<!-- https://github.com/luckyone1221/0060Miner -->
 
-
-rm -rf node_modules
+1. <>
