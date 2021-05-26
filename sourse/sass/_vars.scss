@@ -1,4 +1,4 @@
-$em-base: 16px;
+$em-base: 14px;
 $small: rem(14);
 $url: '../img/';
 $path2: '@2x/';
@@ -34,15 +34,19 @@ $utilities: ("opacity": (
 
 // scss-docs-start gray-color-variables
 $white: #fff !default;
-$gray-100: #f8f9fa !default;
+$gray-100: #DADADA;
+$gray-110: #F6F6F6;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
 $gray-400: #ced4da !default;
 $gray-500: #adb5bd !default;
-$gray-600: #6c757d !default;
+$gray-550: #C4C4C4;
+$gray-600: #878787;
+$gray-610: #636363;
 $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
+$gray-920: #252525;
 $black: #000 !default;
 // scss-docs-end gray-color-variables
 
@@ -68,7 +72,9 @@ $pink: #d63384 !default;
 $red: #dc3545 !default;
 $orange: #fd7e14 !default;
 $yellow: #ffc107 !default;
-$green: #198754 !default;
+$green: #56BC53;
+$green2: #36AF33;
+$green3: #F7FFF7;
 $teal: #20c997 !default;
 $cyan: #0dcaf0 !default;
 // scss-docs-end color-variables
@@ -90,13 +96,13 @@ $colors: ("blue": $blue,
 // scss-docs-end colors-map
 
 // scss-docs-start theme-color-variables
-$primary: $blue !default;
-$secondary: $gray-600 !default;
+$primary: $green;
+$secondary: $gray-600; //
 $success: $green !default;
 $info: $cyan !default;
 $warning: $yellow !default;
 $danger: $red !default;
-$light: $gray-100 !default;
+$light: #EBEBEB; //
 $dark: $gray-900 !default;
 // scss-docs-end theme-color-variables
 
@@ -294,7 +300,7 @@ $position-values: (0: 0,
 // Settings for the `<body>` element.
 
 $body-bg: $white !default;
-$body-color: $gray-900 !default;
+$body-color: $black;
 $body-text-align: null !default;
 
 
@@ -329,7 +335,7 @@ $grid-breakpoints: (xs: 0,
   md: 768px,
   lg: 992px,
   xl: 1200px,
-  xxl: 1400px) !default;
+  xxl: 1349px) !default;
 // scss-docs-end grid-breakpoints
 
 @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
@@ -341,11 +347,12 @@ $grid-breakpoints: (xs: 0,
 // Define the maximum width of `.container` for different screen sizes.
 
 // scss-docs-start container-max-widths
-$container-max-widths: (sm: 540px,
+$container-max-widths: (
+  sm: 540px,
   md: 720px,
   lg: 960px,
   xl: 1140px,
-  xxl: 1320px) !default;
+  xxl: 1334px) !default;
 // scss-docs-end container-max-widths
 
 @include _assert-ascending($container-max-widths, "$container-max-widths");
@@ -356,7 +363,7 @@ $container-max-widths: (sm: 540px,
 // Set the number of columns and specify the width of the gutters.
 
 $grid-columns: 12 !default;
-$grid-gutter-width: 1.5rem !default;
+$grid-gutter-width: 30px !default;
 $grid-row-columns: 6 !default;
 
 $gutters: $spacers !default;
@@ -382,7 +389,7 @@ $border-color: $gray-300 !default;
 // scss-docs-end border-variables
 
 // scss-docs-start border-radius-variables
-$border-radius: .25rem !default;
+$border-radius: 2px; //++
 $border-radius-sm: .2rem !default;
 $border-radius-lg: .3rem !default;
 $border-radius-pill: 50rem !default;
@@ -633,8 +640,8 @@ $input-btn-border-width: $border-width !default;
 // For each of Bootstrap's buttons, define text, background, and border color.
 
 // scss-docs-start btn-variables
-$btn-padding-y: $input-btn-padding-y !default;
-$btn-padding-x: $input-btn-padding-x !default;
+$btn-padding-y: rem(16);
+$btn-padding-x: rem(24);
 $btn-font-family: $input-btn-font-family !default;
 $btn-font-size: $input-btn-font-size !default;
 $btn-line-height: $input-btn-line-height !default;
@@ -702,8 +709,8 @@ $form-label-color: null !default;
 // scss-docs-end form-label-variables
 
 // scss-docs-start form-input-variables
-$input-padding-y: $input-btn-padding-y !default;
-$input-padding-x: $input-btn-padding-x !default;
+$input-padding-y: rem(16);
+$input-padding-x: rem(24);
 $input-font-family: $input-btn-font-family !default;
 $input-font-size: $input-btn-font-size !default;
 $input-font-weight: $font-weight-base !default;

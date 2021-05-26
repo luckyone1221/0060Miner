@@ -332,6 +332,25 @@ function eventHandler() {
 	});
 	// modal window
 
+	//luckyone js
+	$('.catalog-btn-js').click(function (){
+		console.log('1');
+		$(this).toggleClass('active');
+		$('.catalog-dd--js').fadeToggle(function (){
+			$(this).toggleClass('active');
+		});
+	});
+	document.addEventListener('click', function (){
+		if (!event.target.closest('.catalog-btn-js') && !event.target.closest('.catalog-dd--js')){
+			$(this).removeClass('active');
+			$('.catalog-dd--js').fadeToggle(function (){
+				$(this).removeClass('active');
+			});
+		}
+	});
+	//end luckyone js
+
+
 };
 if (document.readyState !== 'loading') {
 	eventHandler();

@@ -126,6 +126,7 @@ var Autoplay = {
   },
   onMouseLeave: function onMouseLeave() {
     var swiper = this;
+    swiper.autoplay.paused = false;
     swiper.autoplay.run();
   },
   attachMouseEvents: function attachMouseEvents() {

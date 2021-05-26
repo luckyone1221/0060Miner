@@ -1,30 +1,105 @@
 mixin mob-mnu()
-	-
-		//- let path = require('path');
-		//- let fs = require('fs');
-		//- var requestURL = 'top-nav.json';
-		//- var request = new XMLHttpRequest();
-		//- request.open('GET', requestURL);
-		//- request.responseType = 'json';
-		//- let dataJson = JSON.parse(json);
-	//- h1= dataJson['lala'] 
 	+b.menu-mobile--js.d-lg-none
 		+b.toggle-menu-mobile--js.on
 			span
 		+e.inner
-		
 			+mnu()
 			.text-right
 	//  мобильное меню
+
 mixin top-nav() 
 	// start top-nav
+	+top-line()
 	+b.top-nav.block-with-lazy
-		.container
-			.row
-				.col-auto.d-lg-none
-					+b.toggle-menu-mobile--js
-						span
-				.col.d-none.d-lg-block
-					+mnu()
-					
+		+e.top
+			.container
+				.row.align-items-center
+					.col-auto
+						+e.logo-row.row.align-items-center
+							.col-auto
+								+e.logo(href='#')
+									img(loading="lazy" src="img/svg/logo.svg" alt="")
+							+e.l-txt-col.col-auto
+								+e.logo-txt У нас есть все, чтобы начать зарабатывать на криптовалюте!
+					+e.col--tell.col
+						+e.tell(href='tel:+74950100101') +7(495) 010-01-01
+						+e.callback Обратный звонок
+					+e.col--shedule.col
+						+topNavIconedRow('h-clock', 'График работы')
+							+e.shedule ПН-ВС: с 9:00 до 18:00
+					+e.col--price.col
+						+topNavIconedRow('h-file', 'Прайс-лист')
+							+e.price-link(href='#') Скачать
+					+e.col--store.col-auto
+						+topNavIconedRow('h-store', 'Наш склад')
+							+e.store-add Москва, ул. Ленина 1
+		+e.bot
+			.container
+				.row
+					.col-auto
+						+e.catalog-cont
+							+e.catalog-btn.catalog-btn-js
+								+e.c-burger
+									span
+								+e.c-txt Каталог оборудования
+							+catalogDD()
+					.col
+						+e.inp-row.row
+							.col
+								+e.input-box
+									+e.INPUT.input.form-control(type="text" placeholder="Искать на KUPIMINER")
+									+e.SELECT.select.form-control.form-select.d-none
+							.col-auto
 	// end top-nav
+
+mixin catalogDD()
+	+b.catalog-dd--js
+		+e.items
+			+catalogDDItem('1', 'Компьютерные товары')
+			+catalogDDItem('1', 'Корпуса для ферм на видеокартах')
+			+catalogDDItem('2', 'Электроника')
+			+catalogDDItem('3', 'Asic miners')
+			+catalogDDItem('1', 'GPU фермы')
+			+catalogDDItem('3', 'Аксессуары')
+			+catalogDDItem('2', 'Контейнеры для майнинга')
+			+catalogDDItem('1', 'Видеокарты')
+
+mixin catalogDDItem(imgNum, txt)
+	+e.item(href='#')
+		+e.img
+			img(loading="lazy" src=`img/svg/catalog-${imgNum}.svg` alt="")
+		+e.txt=txt
+
+
+mixin topNavIconedRow(imgName, boldTxt, rowAddClasses='')
+	+e.iconed-row.row(class=rowAddClasses)
+		.col-auto
+			+e.i-icon
+				img(loading="lazy" src=`img/svg/${imgName}.svg` alt="")
+		.col
+			+e.bold-txt=boldTxt
+			block
+
+
+mixin top-line()
+	+b.top-line
+		.container
+			.row.align-items-center
+				.col
+					+e.gray-menu
+						ul
+							li: a(href="#") Доставка и оплата
+							li: a(href="#") Гарантии
+							li: a(href="#") Контакты
+							li: a(href="#") FAQ
+							li: a(href="#") Отзывы
+				.col-auto
+					+e.soc-row.row
+						+topLineSocItem('tw')
+						+topLineSocItem('fb')
+						+topLineSocItem('tg')
+
+mixin topLineSocItem(imgName)
+	.col-auto
+		+e.soc-item(href="#")
+			img(loading="lazy" src=`img/svg/tl-soc-${imgName}.svg` alt="")
