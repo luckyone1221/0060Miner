@@ -47,10 +47,24 @@ mixin top-nav()
 						+e.inp-row.row
 							.col
 								+e.input-box
-									+e.INPUT.input.form-control(type="text" placeholder="Искать на KUPIMINER")
 									+e.SELECT.select.form-control.form-select.d-none
+									+e.INPUT.input.form-control(type="text" placeholder="Искать на KUPIMINER")
 							.col-auto
+								+e.inp-btn(type="button")
+									+icon('zoom')
+					.col-auto
+						+e.s-links-row.row
+							+sLink('star')
+							+sLink('user')
+							.col-auto
+								+e.s-link--cart(href='#')
+									+icon('cart')
 	// end top-nav
+
+mixin sLink(iconName)
+	.col-auto
+		+e.s-link(href='#')&attributes(attributes)
+			+icon(iconName)
 
 mixin catalogDD()
 	+b.catalog-dd--js
