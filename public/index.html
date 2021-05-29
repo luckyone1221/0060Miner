@@ -13,11 +13,35 @@
 	</head>
 	<body>
 		<div class="main-wrapper">
-			<!--+mob-mnu()-->
+			<div class="mob-menu mob-menu--js">
+				<div class="mob-menu__inner mm-inner-js">
+					<div class="mob-menu__catalog-items"><a class="mob-menu__item" href="#"><span class="mob-menu__img"><img loading="lazy" src="img/svg/catalog-1.svg" alt=""/></span><span class="mob-menu__txt">Компьютерные товары</span></a><a class="mob-menu__item" href="#"><span class="mob-menu__img"><img loading="lazy" src="img/svg/catalog-1.svg" alt=""/></span><span class="mob-menu__txt">Корпуса для ферм на видеокартах</span></a><a class="mob-menu__item" href="#"><span class="mob-menu__img"><img loading="lazy" src="img/svg/catalog-2.svg" alt=""/></span><span class="mob-menu__txt">Электроника</span></a><a class="mob-menu__item" href="#"><span class="mob-menu__img"><img loading="lazy" src="img/svg/catalog-3.svg" alt=""/></span><span class="mob-menu__txt">Asic miners</span></a><a class="mob-menu__item" href="#"><span class="mob-menu__img"><img loading="lazy" src="img/svg/catalog-1.svg" alt=""/></span><span class="mob-menu__txt">GPU фермы</span></a><a class="mob-menu__item" href="#"><span class="mob-menu__img"><img loading="lazy" src="img/svg/catalog-3.svg" alt=""/></span><span class="mob-menu__txt">Аксессуары</span></a><a class="mob-menu__item" href="#"><span class="mob-menu__img"><img loading="lazy" src="img/svg/catalog-2.svg" alt=""/></span><span class="mob-menu__txt">Контейнеры для майнинга</span></a><a class="mob-menu__item" href="#"><span class="mob-menu__img"><img loading="lazy" src="img/svg/catalog-1.svg" alt=""/></span><span class="mob-menu__txt">Видеокарты</span></a>
+					</div>
+					<div class="mob-menu__gray-links">
+						<ul>
+							<li><a href="#">Отзывы</a></li>
+							<li><a href="#">Доставка и оплата</a></li>
+							<li><a href="#">Возврат</a></li>
+							<li><a href="#">Контакты</a></li>
+						</ul>
+					</div>
+					<div class="mob-menu__lower-content">
+						<div class="mob-menu__soc-row row gy-3">
+							<div class="col-auto"><a class="mob-menu__soc-item" href="#"><img loading="lazy" src="img/svg/tl-soc-tw.svg" alt=""/></a>
+							</div>
+							<div class="col-auto"><a class="mob-menu__soc-item" href="#"><img loading="lazy" src="img/svg/tl-soc-fb.svg" alt=""/></a>
+							</div>
+							<div class="col-auto"><a class="mob-menu__soc-item" href="#"><img loading="lazy" src="img/svg/tl-soc-tg.svg" alt=""/></a>
+							</div>
+						</div><a class="mob-menu__tel" href="tel:+74950100101">+7(495) 010-01-01</a><a class="mob-menu__call-back" href="#">Обратный звонок</a>
+					</div>
+				</div>
+			</div>
+			<!--  мобильное меню-->
 			<!-- start header-->
 			<header class="header" id="header">
 				<!-- start top-nav-->
-				<div class="top-line">
+				<div class="top-line d-none d-lg-block">
 					<div class="container">
 						<div class="row align-items-center">
 							<div class="col">
@@ -44,10 +68,10 @@
 						</div>
 					</div>
 				</div>
-				<div class="top-nav block-with-lazy">
-					<div class="top-nav__top">
+				<div class="top-nav top-nav--js block-with-lazy">
+					<div class="top-nav__top d-none d-lg-block">
 						<div class="container">
-							<div class="row align-items-center">
+							<div class="top-nav__top-row row align-items-center">
 								<div class="col-auto">
 									<div class="top-nav__logo-row row align-items-center">
 										<div class="col-auto"><a class="top-nav__logo" href="#"><img loading="lazy" src="img/svg/logo.svg" alt=""/></a>
@@ -62,7 +86,7 @@
 									<div class="top-nav__callback">Обратный звонок
 									</div>
 								</div>
-								<div class="top-nav__col top-nav__col--shedule col">
+								<div class="top-nav__col top-nav__col--shedule col d-xl-block d-none">
 									<div class="top-nav__iconed-row row">
 										<div class="col-auto">
 											<div class="top-nav__i-icon"><img loading="lazy" src="img/svg/h-clock.svg" alt=""/>
@@ -88,7 +112,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="top-nav__col top-nav__col--store col-auto">
+								<div class="top-nav__col top-nav__col--store col-auto d-lg-block d-none">
 									<div class="top-nav__iconed-row row">
 										<div class="col-auto">
 											<div class="top-nav__i-icon"><img loading="lazy" src="img/svg/h-store.svg" alt=""/>
@@ -106,9 +130,13 @@
 						</div>
 					</div>
 					<div class="top-nav__bot">
-						<div class="container">
-							<div class="row">
-								<div class="col-auto">
+						<div class="top-nav__bot-cont container">
+							<div class="top-nav__bot-row row align-items-center">
+								<div class="col-auto d-lg-none">
+									<div class="top-nav__burger burger-js"><span></span>
+									</div>
+								</div>
+								<div class="col-auto d-none d-lg-block">
 									<div class="top-nav__catalog-cont">
 										<div class="top-nav__catalog-btn catalog-btn-js">
 											<div class="top-nav__c-burger"><span></span>
@@ -122,39 +150,51 @@
 										</div>
 									</div>
 								</div>
-								<div class="col">
+								<div class="col d-none d-lg-block">
 									<div class="top-nav__inp-row row">
-										<div class="col">
+										<div class="top-nav__inp-col col">
 											<div class="top-nav__input-box">
-												<select class="top-nav__select form-control form-select d-none">
+												<select class="top-nav__select form-control form-select">
+													<option>Везде</option>
+													<option>Везде2</option>
+													<option>Везде3</option>
 												</select><input class="top-nav__input form-control" type="text" placeholder="Искать на KUPIMINER"/>
 											</div>
 										</div>
 										<div class="col-auto">
-											<button class="top-nav__inp-btn" type="button">
-												<svg class="icon icon-zoom ">
-													<use xlink:href="img/svg/sprite.svg#zoom"></use>
-												</svg>
+											<button class="top-nav__inp-btn" type="button"><img loading="lazy" src="img/svg/zoom.svg" alt=""/>
 											</button>
 										</div>
 									</div>
 								</div>
-								<div class="col-auto">
-									<div class="top-nav__s-links-row row">
-										<div class="col-auto"><a class="top-nav__s-link" href="#">
+								<div class="col col-lg-auto">
+									<div class="top-nav__s-links-row row justify-content-end">
+										<div class="col-auto d-lg-none"><a class="top-nav__s-link search-sm-js" href="#"><img loading="lazy" src="img/svg/zoom-sm.svg" alt=""/></a>
+										</div>
+										<div class="col d-lg-none mob-search-col-js">
+											<div class="row">
+												<div class="col"><input class="top-nav__input-mob form-control inp-mob-js" type="text"/>
+												</div>
+												<div class="col-auto">
+													<div class="top-nav__m-close-btn m-close-btn-js"><img loading="lazy" src="img/svg/cross.svg" alt=""/>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-auto s-col-js active"><a class="top-nav__s-link" href="#">
 											<svg class="icon icon-star ">
 												<use xlink:href="img/svg/sprite.svg#star"></use>
 											</svg></a>
 										</div>
-										<div class="col-auto"><a class="top-nav__s-link" href="#">
+										<div class="col-auto s-col-js active"><a class="top-nav__s-link" href="#">
 											<svg class="icon icon-user ">
 												<use xlink:href="img/svg/sprite.svg#user"></use>
 											</svg></a>
 										</div>
-										<div class="col-auto"><a class="top-nav__s-link top-nav__s-link--cart" href="#">
+										<div class="col-auto s-col-js active"><a class="top-nav__s-link top-nav__s-link--cart" href="#">
 											<svg class="icon icon-cart ">
 												<use xlink:href="img/svg/sprite.svg#cart"></use>
-											</svg></a>
+											</svg><span class="top-nav__amount-ball">2</span></a>
 										</div>
 									</div>
 								</div>
@@ -168,10 +208,119 @@
 			<!-- start headerBlock-->
 			<div class="headerBlock section" id="headerBlock">
 				<div class="container">
-					<div class="section-title text-center">
-						<h2>headerBlock ds dfsdfdsfsd</h2>
+					<div class="headerBlock__main-row row">
+						<div class="headerBlock__l-col col-xl-6">
+							<div class="headerBlock__sub-row headerBlock__sub-row--left row">
+								<div class="col-sm-6">
+									<div class="prod-card">
+										<div class="prod-card__img-box">
+											<div class="prod-card__tags">
+												<div class="prod-card__t-row row gy-2">
+													<div class="col-auto">
+														<div class="prod-card__tag" style="color: #901A1A; background-color:#F8DEDE;">топ продаж
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="prod-card__backplate">
+												<div class="prod-card__bp-ball">
+												</div>
+											</div><a class="prod-card__img" href="#"><img loading="lazy" src="img/@2x/prod-card-1.png" alt=""/></a>
+										</div><a class="prod-card__title" href="#">Antminer S19 95TH/s</a>
+										<div class="prod-card__gray-row row align-items-center">
+											<div class="col">
+												<div class="prod-card__gray">По предзаказу
+												</div>
+											</div>
+											<div class="col-auto">
+												<div class="prod-card__gray">3250W
+												</div>
+											</div>
+										</div>
+										<div class="prod-card__price-row row align-items-center">
+											<div class="col">
+												<div class="prod-card__price">920 000 ₽
+												</div>
+											</div>
+											<div class="col-auto"><a class="prod-card__det-btn" href="#">подробнее</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="prod-card">
+										<div class="prod-card__img-box">
+											<div class="prod-card__tags">
+												<div class="prod-card__t-row row gy-2">
+													<div class="col-auto">
+														<div class="prod-card__tag" style="color: #901A1A; background-color:#F8DEDE;">топ продаж
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="prod-card__backplate">
+												<div class="prod-card__bp-ball">
+												</div>
+											</div><a class="prod-card__img" href="#"><img loading="lazy" src="img/@2x/prod-card-1.png" alt=""/></a>
+										</div><a class="prod-card__title" href="#">Antminer S19 95TH/s</a>
+										<div class="prod-card__gray-row row align-items-center">
+											<div class="col">
+												<div class="prod-card__gray">По предзаказу
+												</div>
+											</div>
+											<div class="col-auto">
+												<div class="prod-card__gray">3250W
+												</div>
+											</div>
+										</div>
+										<div class="prod-card__price-row row align-items-center">
+											<div class="col">
+												<div class="prod-card__price">920 000 ₽
+												</div>
+											</div>
+											<div class="col-auto"><a class="prod-card__det-btn" href="#">подробнее</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div><a class="headerBlock__big-btn" href="#">Посмотреть весь каталог майнеров</a>
+						</div>
+						<div class="headerBlock__r-col col-xl-6">
+							<div class="headerBlock__sub-row row">
+								<div class="headerBlock__txt-col col">
+									<div class="headerBlock__txt-item" style="background-color: #EFEBD9">
+										<div class="headerBlock__bg-img"><img loading="lazy" src="img/svg/hb-txt-item-bg-1.svg" alt=""/>
+										</div>
+										<div class="headerBlock__txt-content">
+											<h4>Сколько приносит аппарат?</h4>
+											<p>Прибыль аппарата зависит от мощности потребления, количества терахеш (или другой единицы измерения у определенного алгоритма), цен на электричество.</p>
+										</div>
+									</div>
+									<div class="headerBlock__txt-item" style="background-color: #D9E8EF">
+										<div class="headerBlock__bg-img"><img loading="lazy" src="img/svg/hb-txt-item-bg-2.svg" alt=""/>
+										</div>
+										<div class="headerBlock__txt-content">
+											<h4>Стоит брать новое или б/У?</h4>
+											<p>Как показывает практика, Б/У оборудование - это всегда риски брака, поломок, и других проблем, которые могут возникнуть в результате транспортировки вашего оборудования.</p>
+											<p>Наша компания рекомендует всем нашим клиентам закупать исключительно новое оборудование, чтобы избежать проблем брака, так как ремонт б/у оборудования - это большая потеря времени и самое главное прибыли. Поберегите свои нервы и инвестиции!</p>
+										</div>
+									</div>
+								</div>
+								<div class="headerBlock__baner-col col-auto d-none d-sm-block">
+									<div class="headerBlock__baner">
+										<div class="headerBlock__img"><img loading="lazy" src="img/@2x/hb-baner-img.jpg" alt=""/>
+										</div>
+										<div class="headerBlock__content">
+											<div class="headerBlock__logo"><img loading="lazy" src="img/svg/logo-black.svg" alt=""/>
+											</div>
+											<div class="headerBlock__txt">Работаем с 2010 года.
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="row"></div>
 				</div>
 			</div>
 			<!-- end headerBlock-->

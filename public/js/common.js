@@ -80,51 +80,6 @@ const JSCCommon = {
 		if (linkModal) addData();
 	},
 
-	// /modalCall
-	toggleMenu() {
-		const toggle = this.btnToggleMenuMobile;
-		const menu = this.menuMobile;
-		document.addEventListener("click", function (event) {
-			const toggleEv = event.target.closest(".toggle-menu-mobile--js");
-			if (!toggleEv) return;
-			toggle.forEach(el => el.classList.toggle("on"));
-			menu.classList.toggle("active");
-			[document.body, document.querySelector('html')].forEach(el => el.classList.toggle("fixed"));
-		}, {
-			passive: true
-		});
-	},
-
-	closeMenu() {
-		let menu = this.menuMobile;
-		if (!menu) return;
-
-		if (menu.classList.contains("active")) {
-			this.btnToggleMenuMobile.forEach(element => element.classList.remove("on"));
-			this.menuMobile.classList.remove("active");
-			[document.body, document.querySelector('html')].forEach(el => el.classList.remove("fixed"));
-		}
-	},
-
-	mobileMenu() {
-		if (!this.menuMobileLink) return;
-		this.toggleMenu();
-		document.addEventListener('mouseup', event => {
-			let container = event.target.closest(".menu-mobile--js.active"); // (1)
-
-			let link = event.target.closest(".navMenu__link"); // (1)
-
-			if (!container || link) this.closeMenu();
-		}, {
-			passive: true
-		});
-		window.addEventListener('resize', () => {
-			if (window.matchMedia("(min-width: 992px)").matches) this.closeMenu();
-		}, {
-			passive: true
-		});
-	},
-
 	// /mobileMenu
 	// tabs  .
 	tabscostume(tab) {
@@ -269,7 +224,6 @@ function eventHandler() {
 	JSCCommon.ifie();
 	JSCCommon.modalCall();
 	JSCCommon.tabscostume('.tabs--js');
-	JSCCommon.mobileMenu();
 	JSCCommon.inputMask();
 	JSCCommon.sendForm();
 	JSCCommon.heightwindow();
@@ -277,7 +231,7 @@ function eventHandler() {
 
 	var x = window.location.host;
 	let screenName;
-	screenName = document.body.dataset.bg;
+	screenName = document.body.dataset.bg || '01.png';
 
 	if (screenName && x.includes("localhost:30")) {
 		document.body.insertAdjacentHTML("beforeend", "<div class=\"pixel-perfect\" style=\"background-image: url(screen/".concat(screenName, ");\"></div>"));
@@ -345,11 +299,62 @@ function eventHandler() {
 	document.addEventListener('click', function () {
 		if (!event.target.closest('.catalog-btn-js') && !event.target.closest('.catalog-dd--js')) {
 			$(this).removeClass('active');
-			$('.catalog-dd--js').fadeToggle(function () {
+			$('.catalog-dd--js').fadeOut(function () {
 				$(this).removeClass('active');
 			});
 		}
-	}); //end luckyone js
+	}); //
+
+	let topNav = document.querySelector(".top-nav--js");
+
+	function calcHeaderHeight() {
+		document.documentElement.style.setProperty('--top-nav-height', "".concat(topNav.offsetHeight, "px"));
+	}
+
+	window.addEventListener('resize', calcHeaderHeight, {
+		passive: true
+	});
+	window.addEventListener('scroll', calcHeaderHeight, {
+		passive: true
+	});
+	calcHeaderHeight(); //
+
+	$('.burger-js').click(function () {
+		window.scrollTo(0, 0);
+		$('.burger-js, .mob-menu--js').toggleClass('active');
+		$('body').toggleClass('fixed');
+	});
+	$('.mob-menu--js').click(function () {
+		if (!event.target.closest('.mm-inner-js')) {
+			$('.burger-js, .mob-menu--js').removeClass('active');
+			$('body').removeClass('fixed');
+		}
+	}); //mob search
+
+	$('.search-sm-js').click(function () {
+		$('.s-col-js').each(function () {
+			$(this).removeClass('active');
+		});
+		$('.mob-search-col-js').addClass('active');
+		$('.inp-mob-js').focus();
+	});
+	$('.m-close-btn-js').click(function () {
+		$('.mob-search-col-js').removeClass('active');
+		$('.s-col-js').each(function () {
+			$(this).addClass('active');
+		});
+	});
+
+	function mobSearchMissClick() {
+		if (!event.target.closest('.top-nav--js')) {
+			$('.mob-search-col-js').removeClass('active');
+			$('.s-col-js').each(function () {
+				$(this).addClass('active');
+			});
+		}
+	}
+
+	document.addEventListener('click', mobSearchMissClick); //end luckyone js
 }
 
 ;

@@ -2,9 +2,79 @@ mixin headerBlock()
 	// start headerBlock
 	+b.headerBlock.section#headerBlock&attributes(attributes)
 		.container
-			+b.section-title.text-center
-				h2 headerBlock ds dfsdfdsfsd
-
-			.row
-						
+			+e.main-row.row
+				+e.l-col.col-xl-6
+					+e.sub-row--left.row
+						.col-sm-6
+							+prodCard({
+								bpType: 'empty',
+								tag: true,
+								title: 'Antminer S19 95TH/s',
+								imgNum: '1',
+								grayTxt: '3250W',
+								price: '920 000 ₽',
+							})
+						.col-sm-6
+							+prodCard({
+								bpType: 'empty',
+								tag: true,
+								title: 'Antminer S19 95TH/s',
+								imgNum: '1',
+								grayTxt: '3250W',
+								price: '920 000 ₽',
+							})
+					+e.big-btn(href='#') Посмотреть весь каталог майнеров
+				+e.r-col.col-xl-6
+					+e.sub-row.row
+						+e.txt-col.col
+							+hbTxtItem(1, '#EFEBD9')
+								h4 Сколько приносит аппарат?
+								p Прибыль аппарата зависит от мощности потребления, количества терахеш (или другой единицы измерения у определенного алгоритма), цен на электричество.
+							+hbTxtItem(2, '#D9E8EF')
+								h4 Стоит брать новое или б/У?
+								p Как показывает практика, Б/У оборудование - это всегда риски брака, поломок, и других проблем, которые могут возникнуть в результате транспортировки вашего оборудования.
+								p Наша компания рекомендует всем нашим клиентам закупать исключительно новое оборудование, чтобы избежать проблем брака, так как ремонт б/у оборудования - это большая потеря времени и самое главное прибыли. Поберегите свои нервы и инвестиции!
+						+e.baner-col.col-auto.d-none.d-sm-block
+							+e.baner
+								+e.img
+									img(loading="lazy" src="img/@2x/hb-baner-img.jpg" alt="")
+								+e.content
+									+e.logo
+										img(loading="lazy" src='img/svg/logo-black.svg' alt="")
+									+e.txt Работаем с 2010 года.
 	// end headerBlock
+
+mixin hbTxtItem(imgNum, bgColor)
+	+e.txt-item(style=`background-color: ${bgColor}`)
+		+e.bg-img
+			img(loading="lazy" src=`img/svg/hb-txt-item-bg-${imgNum}.svg` alt="")
+		+e.txt-content
+			block
+
+mixin prodCard(data)
+	+b.prod-card
+		+e.img-box
+			if data.tag
+				+e.tags
+					+e.t-row.row.gy-2
+						.col-auto
+							+e.tag(style='color: #901A1A; background-color:#F8DEDE;') топ продаж
+			if data.bpType === 'empty'
+				+e.backplate
+					+e.bp-ball
+			if data.bpType === '1'
+				+e.backplate
+					img(loading="lazy" src="" alt="")
+			+e.img(href='#')
+				img(loading="lazy" src=`img/@2x/prod-card-${data.imgNum}.png` alt="")
+		+e.title(href='#')=data.title
+		+e.gray-row.row.align-items-center
+			.col
+				+e.gray По предзаказу
+			.col-auto
+				+e.gray=data.grayTxt
+		+e.price-row.row.align-items-center
+			.col
+				+e.price=data.price
+			.col-auto
+				+e.det-btn(href='#') подробнее

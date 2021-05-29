@@ -1,19 +1,42 @@
-mixin mob-mnu()
-	+b.menu-mobile--js.d-lg-none
-		+b.toggle-menu-mobile--js.on
-			span
-		+e.inner
-			+mnu()
-			.text-right
+mixin mobMenu()
+	+b.mob-menu--js
+		+e.inner.mm-inner-js
+			+e.catalog-items
+				+catalogDDItem('1', 'Компьютерные товары')
+				+catalogDDItem('1', 'Корпуса для ферм на видеокартах')
+				+catalogDDItem('2', 'Электроника')
+				+catalogDDItem('3', 'Asic miners')
+				+catalogDDItem('1', 'GPU фермы')
+				+catalogDDItem('3', 'Аксессуары')
+				+catalogDDItem('2', 'Контейнеры для майнинга')
+				+catalogDDItem('1', 'Видеокарты')
+			+e.gray-links
+				ul
+					li: a(href="#") Отзывы
+					li: a(href="#") Доставка и оплата
+					li: a(href="#") Возврат
+					li: a(href="#") Контакты
+			+e.lower-content
+				+e.soc-row.row.gy-3
+					+mmSocItem('tw')
+					+mmSocItem('fb')
+					+mmSocItem('tg')
+				+e.tel(href='tel:+74950100101') +7(495) 010-01-01
+				+e.call-back(href='#') Обратный звонок
 	//  мобильное меню
+
+mixin mmSocItem(imgName)
+	.col-auto
+		+e.soc-item(href='#')
+			img(loading="lazy" src=`img/svg/tl-soc-${imgName}.svg` alt="")
 
 mixin top-nav() 
 	// start top-nav
 	+top-line()
-	+b.top-nav.block-with-lazy
-		+e.top
+	+b.top-nav--js.block-with-lazy
+		+e.top.d-none.d-lg-block
 			.container
-				.row.align-items-center
+				+e.top-row.row.align-items-center
 					.col-auto
 						+e.logo-row.row.align-items-center
 							.col-auto
@@ -24,45 +47,63 @@ mixin top-nav()
 					+e.col--tell.col
 						+e.tell(href='tel:+74950100101') +7(495) 010-01-01
 						+e.callback Обратный звонок
-					+e.col--shedule.col
+					+e.col--shedule.col.d-xl-block.d-none
 						+topNavIconedRow('h-clock', 'График работы')
 							+e.shedule ПН-ВС: с 9:00 до 18:00
 					+e.col--price.col
 						+topNavIconedRow('h-file', 'Прайс-лист')
 							+e.price-link(href='#') Скачать
-					+e.col--store.col-auto
+					+e.col--store.col-auto.d-lg-block.d-none
 						+topNavIconedRow('h-store', 'Наш склад')
 							+e.store-add Москва, ул. Ленина 1
 		+e.bot
-			.container
-				.row
-					.col-auto
+			+e.bot-cont.container
+				+e.bot-row.row.align-items-center
+					.col-auto.d-lg-none
+						+e.burger.burger-js
+							span
+					.col-auto.d-none.d-lg-block
 						+e.catalog-cont
 							+e.catalog-btn.catalog-btn-js
 								+e.c-burger
 									span
 								+e.c-txt Каталог оборудования
 							+catalogDD()
-					.col
+					.col.d-none.d-lg-block
 						+e.inp-row.row
-							.col
+							+e.inp-col.col
 								+e.input-box
-									+e.SELECT.select.form-control.form-select.d-none
+									+e.SELECT.select.form-control.form-select
+										option Везде
+										option Везде2
+										option Везде3
 									+e.INPUT.input.form-control(type="text" placeholder="Искать на KUPIMINER")
 							.col-auto
 								+e.inp-btn(type="button")
-									+icon('zoom')
-					.col-auto
-						+e.s-links-row.row
+									img(loading="lazy" src="img/svg/zoom.svg" alt="")
+					//-
+					.col.col-lg-auto
+						+e.s-links-row.row.justify-content-end
+							.col-auto.d-lg-none
+								+e.s-link.search-sm-js(href='#')
+									img(loading="lazy" src="img/svg/zoom-sm.svg" alt="")
+							.col.d-lg-none.mob-search-col-js
+								.row
+									.col
+										+e.INPUT.input-mob.form-control.inp-mob-js(type="text" )
+									.col-auto
+										+e.m-close-btn.m-close-btn-js
+											img(loading="lazy" src="img/svg/cross.svg" alt="")
 							+sLink('star')
 							+sLink('user')
-							.col-auto
+							.col-auto.s-col-js.active
 								+e.s-link--cart(href='#')
 									+icon('cart')
+									+e.amount-ball 2
 	// end top-nav
 
 mixin sLink(iconName)
-	.col-auto
+	.col-auto.s-col-js.active
 		+e.s-link(href='#')&attributes(attributes)
 			+icon(iconName)
 
@@ -96,7 +137,7 @@ mixin topNavIconedRow(imgName, boldTxt, rowAddClasses='')
 
 
 mixin top-line()
-	+b.top-line
+	+b.top-line.d-none.d-lg-block
 		.container
 			.row.align-items-center
 				.col
