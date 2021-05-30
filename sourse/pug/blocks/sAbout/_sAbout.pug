@@ -1,0 +1,25 @@
+mixin sAbout(data)
+	// start sAbout
+	+b.SECTION.sAbout.section#sAbout&attributes(attributes)
+		+e.container.container
+			+e.bg--1
+				img(loading="lazy" src="img/svg/sAbout-bg-1.svg" alt="")
+			+e.bg--2
+				img(loading="lazy" src="img/svg/sAbout-bg-2.svg" alt="")
+			+b.section-title
+				h2 О компании
+			+e.row.row.gy-4
+				+e.l-col.col-xl.col-xxl-auto
+					p Наша компания работает в сфере майнинга криптовалют с начала 2017 года. Изначально целью компании было приобретение и размещение собственного оборудования для майнинга.
+				+e.m-col.col-xl.col-xxl-auto
+					p Для этого была найдена площадка в&nbsp;городе Тула, построена необходимая инфраструктура и&nbsp;собрана команда технических специалистов для контроля работы оборудования, сервисного обслуживания и&nbsp;разработки программного обеспечения для майнинга. Мы&nbsp;создали эффективный и&nbsp;надежный майнинг центр на&nbsp;территории России.
+				+e.r-col.col-auto.ms-auto.d-none.d-xl-block
+					+e.img-box
+						+e.gradiend
+							img(loading="lazy" src="img/@2x/sAbout-grad-bg.png" alt="")
+						+e.girl
+							img(loading="lazy" src="img/@2x/girl.png" alt="")
+						+e.shape
+							img(loading="lazy" src="img/@2x/sAbout-shape.png" alt="")
+
+	// end sAbout

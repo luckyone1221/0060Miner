@@ -1,0 +1,257 @@
+// start .sFAQ
+.sFAQ {
+	--sPT: #{rem(36)};
+	--sPB: #{rem(24)};
+	--sTPB: 0;
+
+	&__container{
+		position: relative;
+		z-index: 1;
+	}
+	&__bg{
+		position: absolute;
+		z-index: -1;
+
+		left: 33%;
+		@include media-breakpoint-up(xl){
+			left: 35%;
+		}
+		@include media-breakpoint-up(xxl){
+			left: 38.5%;
+		}
+		bottom: -15px;
+	}
+	&__main-row{
+		@include roww(43px);
+	}
+	&__l-col{
+		@include media-breakpoint-up(xxl){
+			width: 45%;
+		}
+	}
+	&__questions{
+		@include media-breakpoint-up(lg){
+			padding-top: rem(21);
+		}
+	}
+	&__question{
+		cursor: pointer;
+		@include mt();
+
+		margin-bottom: rem(10);
+		@include media-breakpoint-up(lg){
+			margin-bottom: rem(16);
+		}
+		background: $white;
+		padding: rem(6);
+		position: relative;
+		z-index: 1;
+
+		&:before,
+		&:after{
+			@include mt();
+			content: '';
+			opacity: var(--q-bef-aft-opacity, 0);
+			position: absolute;
+			z-index: -1;
+		}
+
+		&:before{
+			right: calc(100% - 1px);
+			top: 0;
+			height: 100%;
+			background-color: $blue2;
+			width: 50vw;
+		}
+		&:after{
+			@include media-breakpoint-down(lg){
+				content: none!important;
+			}
+			left: calc(100% - 1px);
+			top: 0;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 31px 0 31px 27px;
+			border-color: transparent transparent transparent $blue2;
+		}
+
+		border-radius: rem(4);
+		--q-bef-aft-opacity: 0;
+		background: $white;
+		//inner
+		--chevron-rotate: -90deg;
+		@include media-breakpoint-up(lg){
+			--chevron-rotate: 0deg;
+		}
+		--q-inner-b-color: #{$body-bg};
+		//txt
+		--q-txt-td: underline;
+		--q-txt-color: #{$green};
+		--q-txt-fw: 400;
+		&.active{
+			border-radius: 0;
+			--q-bef-aft-opacity: 1;
+			background: $blue2;
+			//inner
+			--chevron-rotate: 0deg;
+			@include media-breakpoint-up(lg){
+				--chevron-rotate: -90deg;
+			}
+			--q-inner-b-color: #{$blue2};
+			//txt
+			--q-txt-td: none;
+			--q-txt-color: #{$black};
+			--q-txt-fw: 700;
+		}
+	}
+	&__q-inner{
+		@include mt();
+
+		min-height: rem(44);
+		padding: rem(4) rem(20);
+		@include media-breakpoint-up(lg){
+			min-height: rem(50);
+			padding: rem(5) rem(20);
+		}
+
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		border: 1px solid var(--q-inner-b-color, #{$body-bg});
+		border-radius: 4px;
+
+		&:after{
+			@include mt();
+			transform: rotate(var(--chevron-rotate, 0deg));
+			content: '';
+			display: inline-block;
+			width: 26px;
+			height: 26px;
+			flex-shrink: 0;
+			margin-left: rem(20);
+
+			background-image: url(../img/svg/chevron-right.svg);
+		}
+	}
+	&__q-txt{
+		line-height: (16/14);
+		text-decoration-line: var(--q-txt-td);
+		color: var(--q-txt-color, #{$green});
+		font-weight: var(--q-txt-fw, 400);
+	}
+	//
+	&__reply-box{
+		position: relative;
+		z-index: 1;
+	}
+	&__reply{
+		display: none;
+		&.active{
+			display: block;
+		}
+
+		background: $white;
+		box-shadow: 0 rem(11) rem(18) rgba(0, 0, 0, 0.04);
+		border-radius: rem(4);
+
+		padding: rem(24) rem(24);
+		@include media-breakpoint-up(lg){
+			padding: rem(24) rem(20);
+		}
+		@include media-breakpoint-up(xl){
+			padding: rem(32);
+		}
+	}
+	&__r-row{
+		@include roww(16px);
+		--bs-gutter-y: 32px;
+	}
+	&__r-txt-col{
+		@include media-breakpoint-up(sm){
+			max-width: 370px;
+		}
+	}
+	&__r-txt{
+		p{
+			font-size: rem(13);
+			@include media-breakpoint-up(xl){
+				font-size: rem(14);
+			}
+			margin-bottom: 20.5px;
+		}
+
+		& > *:last-child{
+			margin-bottom: 0;
+		}
+	}
+	&__ball-col{
+		@include media-breakpoint-up(xxl){
+			position: relative;
+			top: 15px;
+			left: -17px;
+		}
+	}
+	&__ball{
+		position: relative;
+		margin-bottom: -10px;
+	}
+	&__ball-img{
+		width: rem(197);
+		height: rem(197);
+		background: $gray-550;
+		border-radius: 50%;
+		overflow: hidden;
+		padding-right: rem(13);
+
+		display: flex;
+		justify-content: flex-end;
+		align-items: flex-end;
+		img{
+			width: auto;
+			height: auto;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	}
+	&__bit-coin{
+		position: absolute;
+		right: -26px;
+		bottom: 21px;
+	}
+	&__name-box{
+		position: relative;
+		z-index: 2;
+		&:before{
+			content: '';
+			position: absolute;
+			z-index: -1;
+			height: 100%;
+
+			@include media-breakpoint-between(lg, xl){
+				width: calc(100% + 24px);
+				left: -12px;
+			}
+			width: calc(100% + 46px);
+			left: -23px;
+			top: 0;
+			background-color: $blue2;
+			clip-path: polygon(7% 0, 100% 0, 93% 100%, 0% 100%);
+			border-radius: 4px;
+		}
+
+		text-align: center;
+		padding: 7px 0;
+	}
+	&__name{
+		font-weight: bold;
+		color: $blue3;
+	}
+	&__duty{
+		color: lighten($blue3, 10);
+		font-size: 12px;
+	}
+	&__{}
+	&__{}
+} // end.sFAQ

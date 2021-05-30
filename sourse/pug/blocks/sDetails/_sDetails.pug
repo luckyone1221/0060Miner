@@ -1,0 +1,108 @@
+mixin sDetails(data)
+	// start sDetails
+	+b.SECTION.sDetails.section#sDetails&attributes(attributes)
+		+e.container.container
+			+e.bg--mid.d-none.d-xl-block
+				img(loading="lazy" src="img/svg/sDetails-mid-img.svg" alt="")
+			+e.bg--top.d-none.d-xl-block
+				img(loading="lazy" src="img/svg/sDetails-top-img.svg" alt="")
+			+b.section-title
+				+e.img
+					img(loading="lazy" src="img/svg/sDetails-st-img.svg" alt="")
+				h2 Мы поставляем полный перечень оборудования, а также комплектующих для майнинга.
+			+e.main-row.row
+				+sDetailsItem({
+					bootClasses: 'col-xxl-regular',
+					title: 'чипы',
+					titleFor: 'для майнера',
+					ballClasses: 'bal-1 align-items-center',
+					imgNum: 1,
+				})
+				+sDetailsItem({
+					bootClasses: 'col-xxl-regular',
+					title: 'косы',
+					titleFor: 'для блоков питания',
+					ballClasses: 'bal-2',
+					imgNum: 2,
+				})
+				+sDetailsItem({
+					bootClasses: 'col-xxl-big',
+					title: 'Пины',
+					titleFor: 'для хеш плат и блоков',
+					ballClasses: 'bal-3 align-items-center',
+					imgNum: 3,
+				})
+				+sDetailsItem({
+					bootClasses: 'col-xxl',
+					title: 'Кулеры',
+					titleFor: 'для асиков',
+					ballClasses: 'bal-4',
+					imgNum: 4,
+				})
+				+sDetailsItem({
+					bootClasses: 'col-xxl',
+					title: 'Кабели питания',
+					titleFor: 'для блоков',
+					ballClasses: 'bal-5',
+					imgNum: 5,
+				})
+				+sDetailsItem({
+					bootClasses: 'col-xxl-3',
+					title: 'радиаторы',
+					titleFor: 'и алюминиевые профили',
+					ballClasses: 'bal-6 align-items-center',
+					imgNum: 6,
+				})
+			+e.prod-row.row
+				.col-sm-6.col-xl-3
+					+prodCard({
+						bpType: '1',
+						tag: true,
+						title: 'Комплект кабелей для блока питания под асики 5x6Pin',
+						titleSm: true,
+						imgNum: '4',
+						grayTxt: undefined,
+						price: '999 ₽',
+					})
+				.col-sm-6.col-xl-3
+					+prodCard({
+						bpType: '1',
+						tag: true,
+						title: 'Вентилятор JAMICON 120 мм 0,5A',
+						titleSm: true,
+						imgNum: '5',
+						grayTxt: undefined,
+						price: '599 ₽',
+					})
+				.col-sm-6.col-xl-3
+					+prodCard({
+						bpType: '1',
+						tag: true,
+						title: 'Решетка для вентилятора 120х120мм',
+						titleSm: true,
+						imgNum: '6',
+						grayTxt: undefined,
+						price: '12 999 ₽',
+					})
+				.col-sm-6.col-xl-3
+					+prodCard({
+						bpType: '1',
+						tag: true,
+						title: 'Переходник Sata - Molex',
+						titleSm: true,
+						imgNum: '7',
+						grayTxt: undefined,
+						price: '149 ₽',
+					})
+	// end sDetails
+
+mixin sDetailsItem(data)
+	.col-md-6.col-xl-4(class=`${data.bootClasses || ''}`)
+		+e.item(href="#")
+			+e.i-row.row.align-items-center
+				+e.title-col.col
+					+e.title=data.title
+					+e.for=data.titleFor
+				.col-auto.d-block
+					+e.ball(class=`${data.ballClasses || ''}`)
+						img(loading="lazy" src=`img/@2x/sDetails-img-${data.imgNum}.png` alt="")

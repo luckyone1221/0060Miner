@@ -361,11 +361,59 @@ function eventHandler() {
 	}
 	document.addEventListener('click', mobSearchMissClick);
 
+	//
+	let sBrendsSlider = new Swiper('.sBrends-slider-js', {
+		slidesPerView: 'auto',
+		spaceBetween: 15,
 
+		freeMode: true,
+		loopFillGroupWithBlank: true,
+		touchRatio: 0.2,
+		slideToClickedSlide: true,
+		freeModeMomentum: true,
+	});
 	//end luckyone js
+	$('.faq-question-js').click(function (){
+		$('.faq-question-js .q-head-js').removeClass('active');
+		$(this).find('.q-head-js').addClass('active');
+
+		let questionIndex = $(this).index();
+		let replyItems = document.querySelectorAll('.faq-reply-js');
+		let mobReplyItems = document.querySelectorAll('.mob-reply-js');
+
+		toggleReplyItems(replyItems, questionIndex);
+		toggleReplyItems(mobReplyItems, questionIndex);
+	})
+
+	function toggleReplyItems(replyItems,questionIndex){
+		console.log(replyItems);
+		$(replyItems).each(function (){
+			if (this === replyItems[questionIndex]){
+				$(this).slideDown(function (){
+					$(this).addClass('active');
+				})
+			}
+			else{
+				$(this).slideUp(function (){
+					$(this).removeClass('active');
+				})
+			}
+		})
+	}
+	//
+	let sPopularSlider = new Swiper('.sPopular-slider-js', {
+		slidesPerView: 'auto',
+		spaceBetween: 15,
+	});
 
 
-};
+
+	//end luckyoneJs
+
+}
+
+
+;
 if (document.readyState !== 'loading') {
 	eventHandler();
 } else {

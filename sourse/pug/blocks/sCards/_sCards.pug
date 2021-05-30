@@ -1,0 +1,76 @@
+mixin sCards(data)
+	// start sCards
+	+b.sCards.section#sCards&attributes(attributes)
+		.container
+			+e.main-row.row
+				+e.txt-col.col-xl-6
+					+e.card
+						+e.c-row.row.align-items-center
+							.col
+								+e.title
+									h2 Блоки питания
+									p Обеспечивают работу всех установленных плат, защищают оборудование от перепадов напряжения, перегрева, преждевременных поломок.
+									a(href='#') Перейти в каталог блоков питания
+							.col-auto
+								+e.c-img
+									img(loading="lazy" src="img/@2x/sCards-ps.png" alt="")
+									+e.c-ball(style="background-color: #EFEBD9")
+					+e.txt-card(style="background-color: #EFEBD9")
+						p Если вы только планируете построить майнинг-ферму, рекомендуем приобрести модульный блок питания.
+						p Для профессиональных майнеров, рекомендуем блоки питания с интегральными схемами, которые позволяют дистанционно контролировать энергопотребление и напряжение системы в режиме реального времени.
+				.col-sm-6.col-lg-4.col-xl-3
+					+prodCard({
+						bpType: '1',
+						tag: true,
+						title: 'IBM DPS-2500BB',
+						imgNum: '2',
+						grayTxt: '2500Вт',
+						price: '12 999 ₽',
+					})
+				.col-sm-6.col-lg-4.col-xl-3
+					+prodCard({
+						bpType: '1',
+						tag: true,
+						title: 'Seasonic Prime Gold',
+						imgNum: '3',
+						grayTxt: '(SSR-1200GD)',
+						price: '6 525 ₽',
+					})
+				//-
+				.col-sm-6.col-lg-4.col-xl-3
+					+prodCard({
+						bpType: '1',
+						tag: true,
+						title: 'IBM DPS-2500BB',
+						imgNum: '2',
+						grayTxt: '2500Вт',
+						price: '12 999 ₽',
+					})
+				.col-sm-6.col-lg-4.col-xl-3
+					+prodCard({
+						bpType: '1',
+						tag: true,
+						title: 'IBM DPS-2500BB',
+						imgNum: '2',
+						grayTxt: '2500Вт',
+						price: '12 999 ₽',
+					})
+				.col-sm-6.col-lg-4.col-xl-3
+					+prodCard({
+						bpType: '1',
+						tag: true,
+						title: 'IBM DPS-2500BB',
+						imgNum: '2',
+						grayTxt: '2500Вт',
+						price: '12 999 ₽',
+					})
+				.col-sm-6.col-lg-4.col-xl-3
+					+prodCard({
+						bpType: '1',
+						tag: true,
+						title: 'IBM DPS-2500BB',
+						imgNum: '2',
+						grayTxt: '2500Вт',
+						price: '12 999 ₽',
+					})
+	// end sCards

@@ -1,0 +1,20 @@
+mixin sBrends(data)
+	// start sBrends
+	+b.SECTION.sBrends.section#sBrends&attributes(attributes)
+		.container
+			+e.row.row.gy-5.align-items-center
+				.col-xl-3
+					+b.section-title
+						h2 Бренды с которыми мы работаем
+				.col-xl-9
+					+e.slider-wrap
+						.swiper-container.sBrends-slider-js
+							.swiper-wrapper
+								-for (var i = 1; i < 5; i++)
+									+sBrendsSlide(i)
+	// end sBrends
+
+mixin sBrendsSlide(imgNum)
+	.swiper-slide
+		+e.item
+			img(loading="lazy" src=`img/@2x/sBrends-${imgNum}.png` alt="")

@@ -1,0 +1,26 @@
+mixin sSoc(data)
+	// start sSoc
+	+b.SECTION.sSoc.section#sSoc&attributes(attributes)
+		+e.bg
+			img(loading="lazy" src="img/@2x/bit-coin.png" alt="")
+		+e.container.container
+			+b.section-title.d-xl-none
+				h2 мы в соцсетях
+			+e.row.row.align-items-center
+				.col-xl-3.d-xl-block.d-none
+					+b.section-title
+						h2 мы в соцсетях
+				+sSocItem('tg', 'мы в telegram')
+				+sSocItem('fb', 'мы в facebook')
+				+sSocItem('tw', 'мы в twitter')
+
+	// end sSoc
+
+mixin sSocItem(imgName, txt)
+	.col-md-4.col-xl-3
+		+e.item-cont
+			+e.item(href="#")
+				+e.img
+					img(loading="lazy" src=`img/svg/soc-${imgName}.svg` alt="")
+				+e.line
+				+e.txt=txt

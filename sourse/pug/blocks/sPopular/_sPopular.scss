@@ -1,0 +1,34 @@
+// start .sPopular
+.sPopular {
+	--sPT: #{rem(30)};
+	--sPB: #{rem(41)};
+	--sTPB: #{rem(20)};
+
+	.section-title{
+		h2{
+			line-height: 1.5;
+			text-transform: uppercase;
+		}
+	}
+	&__slider-wrap{
+		.swiper-container{
+			@include media-breakpoint-down(xl){
+				overflow: visible;
+			}
+		}
+		.swiper-wrapper{
+
+		}
+		.swiper-slide{
+			height: auto;
+
+			width: 314px;
+			@include media-breakpoint-up(xl){
+				width: calc(100%/4 - 15px * 3/4);
+			}
+		}
+	}
+	&__{}
+	&__{}
+	&__{}
+} // end.sPopular

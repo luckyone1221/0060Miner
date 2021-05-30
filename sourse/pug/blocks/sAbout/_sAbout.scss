@@ -1,0 +1,84 @@
+// start .sAbout
+.sAbout {
+	--sPT: #{rem(41)};
+	--sTPB: #{rem(20)};
+
+	@include media-breakpoint-up(xl){
+		--sPB: #{rem(19)};
+	}
+
+	&__container{
+		position: relative;
+		z-index: 1;
+		@include media-breakpoint-up(xxl){
+			padding-left: 44px;
+		}
+	}
+	&__bg{
+		position: absolute;
+		z-index: -1;
+		&--1{
+			left: 0;
+			top: 103px;
+		}
+		&--2{
+			left: 289px;
+			top: -65px;
+		}
+	}
+	.section-title{
+		h2{
+			line-height: 1.5;
+			text-transform: uppercase;
+		}
+	}
+	&__row{
+		@include roww(21px);
+
+		font-family: $mono;
+	}
+	&__l-col{
+		@include media-breakpoint-up(xxl){
+			width: 334px;
+		}
+	}
+	&__m-col{
+		@include media-breakpoint-up(xxl){
+			width: 375px;
+		}
+	}
+	&__r-col{
+		@include media-breakpoint-up(xl){
+			height: 189px;
+		}
+	}
+
+	&__img-box{
+		width: 561px;
+		max-width: 100%;
+		position: relative;
+		z-index: 1;
+	}
+	&__gradiend{
+		width: auto;
+		max-width: 100%;
+		img{
+			max-width: 100%;
+			height: auto;
+		}
+	}
+	&__girl{
+		position: absolute;
+		bottom: 0;
+		left: 42px;
+	}
+	&__shape{
+		position: absolute;
+		top: -100px;
+		left: 13px;
+		img{}
+	}
+	&__{}
+	&__{}
+	&__{}
+} // end.sAbout

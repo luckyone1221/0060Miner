@@ -1,7 +1,7 @@
 // start .headerBlock
 .headerBlock {
 	--sPT: #{rem(24)};
-	--sPB: #{rem(24)};
+	--sPB: #{rem(18)};
 	--sTPB: #{rem(24)};
 
 	&__main-row{
@@ -218,7 +218,21 @@
 			border-radius: 50%;
 			background-color: $gray-110;
 		}
+
+		&--img{
+			&:before{
+				content: none;
+			}
+
+			//background-image: url(../img/svg/backplate-1.svg);
+			background-image: var(--bp-bg-img, url(../img/svg/backplate-1.svg));
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+		}
 	}
+
+
 	&__img{
 		min-height: 100%;
 
@@ -242,11 +256,18 @@
 		font-weight: 500;
 		font-size: rem(18);
 		line-height: (21/18);
-		text-transform: uppercase;
+		//text-transform: uppercase;
 
 		color: $black;
 		&:hover{
 			color: $primary;
+		}
+
+		//
+		&--sm{
+			margin-bottom: 15px;
+			//padding-top: 3px;
+			line-height: 1.5;
 		}
 	}
 	&__gray-row{

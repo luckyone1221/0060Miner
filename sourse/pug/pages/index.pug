@@ -3,6 +3,15 @@ extends layout/main.pug
 
 include ../blocks/sContent/_sContent.pug
 include ../blocks/sContact/_sContact.pug
+include ../blocks/sCards/_sCards.pug
+include ../blocks/sDetails/_sDetails.pug
+include ../blocks/sBrends/_sBrends.pug
+include ../blocks/sFAQ/_sFAQ.pug
+include ../blocks/sPopular/_sPopular.pug
+include ../blocks/sAbout/_sAbout.pug
+include ../blocks/sHowWork/_sHowWork.pug
+include ../blocks/sBuy/_sBuy.pug
+include ../blocks/sSoc/_sSoc.pug
 
 block variables
 	- let  mainPage= null 
@@ -16,8 +25,13 @@ block pagecontent
 	+header()
 		+top-nav()
 	+headerBlock()
-	+sForm()
-	+sContact()
+	+sCards()
+	+sDetails()
+	+sBrends()
+	+sFAQ()
+	+sPopular()
+	+sAbout()
+	+sHowWork()
+	+sBuy()
+	+sSoc()
 	+footer()
-
-

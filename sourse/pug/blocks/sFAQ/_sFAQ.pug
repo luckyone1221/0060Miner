@@ -1,0 +1,46 @@
+mixin sFAQ(data)
+	// start sFAQ
+	+b.sFAQ.section#sFAQ&attributes(attributes)
+		+e.container.container
+			+e.bg.d-none.d-lg-block
+				img(loading="lazy" src="img/svg/sFaq-bg.svg" alt="")
+			+e.main-row.row.gy-3
+				+e.l-col.col-lg-5
+					+e.questions
+						+sFAQquestion('Сколько ждать из Китая?', 'active')
+						+sFAQquestion('Сколько потребление?')
+						+sFAQquestion('Что лучше асики или карты?')
+						+sFAQquestion('Чем отличаются майнеры?')
+				.col-lg-7.col-xxl.d-none.d-lg-block
+					+e.reply-box.reply-box-js
+						+sFAQreply('faq-reply-js active')
+						+sFAQreply('faq-reply-js')
+						+sFAQreply('faq-reply-js')
+						+sFAQreply('faq-reply-js')
+	// end sFAQ
+
+mixin sFAQquestion(txt,addClasses='')
+	+e.question-cont.faq-question-js
+		+e.question.q-head-js(class=addClasses)
+			+e.q-inner
+				+e.q-txt=txt
+		.d-lg-none
+			+sFAQreply(`mb-3 mob-reply-js ${addClasses}`)
+
+mixin sFAQreply(addClasses='')
+	+e.reply(class=addClasses)
+		+e.r-row.row.align-items-center
+			+e.r-txt-col.col-sm
+				+e.r-txt
+					p Асики майнят другие алгоритмы, в основном это sha256. Данный алгоритм направлен на майнинг BTC и BITCOIN CASH  и другие монеты. Список можно посмотреть на  сайте WHATTOMINE.com в разделе ASIC .
+					p Видеокарты майнят на другом алгоритме и добывают другие монеты. Можно посмотреть на сайте WHATTOMINE.com в разделе GPU.
+					p Единственное преимущество видеокарт в том что в дальнейшем их можно продать как б/у видеокарты для компьютеров.
+			+e.ball-col.col-auto.ms-auto.me-auto.me-sm-0
+				+e.ball
+					+e.ball-img
+						img(loading="lazy" src="img/@2x/manager-img.png" alt="")
+					+e.bit-coin
+						img(loading="lazy" src="img/@2x/bit-coin.png" alt="")
+				+e.name-box
+					+e.name Олег Игоревич,
+					+e.duty менеджер по работе с клиентами

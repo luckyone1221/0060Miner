@@ -1,0 +1,36 @@
+mixin sHowWork(data)
+	// start sHowWork
+	+b.SECTION.sHowWork.section#sHowWork&attributes(attributes)
+		.container
+			+b.section-title
+				h2 КАК МЫ РАБОТАЕМ
+			+e.row.row
+				+sHowWorkCard(1)
+					| Оставляете заявку на нашем
+					|
+					br
+					| сайте или звоните по телефону.
+				+sHowWorkCard(2)
+					| Менеджер связывается с Вами
+					|
+					br
+					| и уточняет все детали
+				+sHowWorkCard(3)
+					| Самовывоз оборудования
+					|
+					br
+					| или доставка
+				+sHowWorkCard(4)
+					| Оплата по факту на месте,
+					|
+					br
+					| после проверки оборудования
+	// end sHowWork
+
+mixin sHowWorkCard(imgNum)
+	.col-md-6.col-xl-3
+		+e.card
+			+e.txt
+				block
+			+e.img
+				img(loading="lazy" src=`img/svg/sHowWork-${imgNum}.svg` alt="")

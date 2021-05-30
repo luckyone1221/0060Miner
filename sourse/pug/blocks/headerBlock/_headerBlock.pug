@@ -64,15 +64,19 @@ mixin prodCard(data)
 					+e.bp-ball
 			if data.bpType === '1'
 				+e.backplate
-					img(loading="lazy" src="" alt="")
+					+e.bp-ball--img
 			+e.img(href='#')
 				img(loading="lazy" src=`img/@2x/prod-card-${data.imgNum}.png` alt="")
-		+e.title(href='#')=data.title
-		+e.gray-row.row.align-items-center
-			.col
-				+e.gray По предзаказу
-			.col-auto
-				+e.gray=data.grayTxt
+		if !data.titleSm
+			+e.title(href='#')=data.title
+		else
+			+e.title--sm(href='#')=data.title
+		if data.grayTxt
+			+e.gray-row.row.align-items-center
+				.col
+					+e.gray По предзаказу
+				.col-auto
+					+e.gray=data.grayTxt
 		+e.price-row.row.align-items-center
 			.col
 				+e.price=data.price
