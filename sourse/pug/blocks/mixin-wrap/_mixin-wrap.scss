@@ -33,4 +33,149 @@
 		}
 	}
 }
+//
+.range-wrap{
+	&__head{
+		@include media-breakpoint-up(md){
+			display: flex;
+			align-items: center;
+		}
 
+		margin-bottom: -9px;
+	}
+	&__rw-title{
+		font-weight: 500;
+
+		margin-bottom: 16px;
+		@include media-breakpoint-up(md){
+			margin-right: 28px;
+			margin-bottom: 0;
+		}
+	}
+	&__row{
+		@include roww(rem(14));
+		padding-top: rem(17);
+	}
+	&__col{
+
+	}
+	&__dash{
+		font-family: $mono;
+		line-height: 42px;
+		color: $gray-570;
+	}
+	&__inp-txt{
+		margin-right: 12px;
+	}
+	&__up-inp-txt{
+		font-weight: 500;
+		font-size: rem(12);
+		line-height: (14/12);
+		color: $gray-980;
+		margin-bottom: 4px;
+	}
+	.form-group{
+		position: relative;
+
+		input{
+			position: relative;
+			z-index: 1;
+			padding: rem(11) rem(12) rem(11) rem(21);
+			background-color: transparent;
+			border-radius: 4px;
+
+			color: #000000;
+			width: 100%;
+
+			font-family: $mono;
+			font-size: rem(14);
+			line-height: (19/14);
+
+			@include placeholder(){
+				color: $gray-570;
+			}
+		}
+	}
+
+	&.with-symbol{
+		input{
+			padding: 10px 30px 10px 20px;
+		}
+	}
+
+	.money-symb{
+		position: absolute;
+		right: 0;
+		top: 0;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		padding: 0 10px;
+	}
+	//
+	.irs-handle{
+		width: 18px;
+		height: 18px;
+		top: 33px;
+		background: $white;
+		border: 1px solid $gray-320;
+		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+
+		cursor: pointer;
+		border-radius: 50%;
+		transition: background-color .3s ease-in-out;
+	}
+	//
+	.irs-line{
+		overflow: visible;
+		height: 8px;
+		border-radius: 12px!important;
+
+		top: 37px;
+		color: rgba($body-color, 0.25);
+
+		background-color: currentColor;
+
+		max-width: calc(100% - 18px);
+		margin-left: auto;
+		margin-right: auto;
+		z-index: 0!important;
+	}
+	.irs-bar{
+		background-color: $green4;
+		height: 8px;
+		top: 37px;
+	}
+	//min, max
+	.irs-min,
+	.irs-max{
+		display: none!important;
+
+		top: 41px;
+		@include media-breakpoint-up(md){
+			top: 50px;
+		}
+		background: transparent;
+
+		color: $red;
+		//810
+		font-size: 14px;
+		line-height: 1;
+
+		//&:after{
+		//	content: 'км';
+		//	display: inline;
+		//	vertical-align: baseline;
+		//	margin-left: 3px;
+		//	//font-size: 12px;
+		//}
+	}
+
+	.irs-min{
+		left: -3px;
+	}
+	.irs-max{
+		right: -3px;
+	}
+
+}

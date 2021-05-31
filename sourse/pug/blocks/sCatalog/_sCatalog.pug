@@ -1,0 +1,71 @@
+mixin sCatalog(data)
+	// start sCatalog
+	+b.SECTION.sCatalog.section#sCatalog&attributes(attributes)
+		+e.container.container
+			block
+			+e.top-row.row.align-items-center.align-items-xxl-end.gy-3
+				.col-md
+					+b.section-title
+						h1 ASIC и GPU фермы
+				.col-md-auto
+					+e.t-sub-row.row.gy-3
+						.col-auto
+							+e.display-btn.active
+								+icon('grid-icon')
+								span Сетка
+						.col-auto
+							+e.display-btn
+								+icon('list-icon')
+								span Список
+						.col-auto
+							+e.items-found
+								+e.if-num 117
+								+e.if-txt Товаров
+			+e.main-row.row.gy-4
+				+e.m-l-col.col-lg-4.col-xl-3
+					+filter()
+				.col-lg-8.col-xl-9.col-xxl
+					+e.items-row.row
+						-for (var i = 0; i < 3*5; i++)
+							.col-sm-6.col-lg-6.col-xl-4
+								+prodCard({
+									bpType: '1',
+									tag: true,
+									title: 'IBM DPS-2500BB',
+									imgNum: '2',
+									grayTxt: '2500Вт',
+									price: '12 999 ₽',
+								})
+					+pugin()
+
+
+	// end sCatalog
+mixin filter()
+	+b.filter
+		+e.title Категории
+		+e.categories
+			+filterCatItem('Блоки питания', '320')
+			+filterCatItem('Корпуса для ферм', '112', 'active')
+			+filterCatItem('Серверные вентиляторы', '32')
+			+filterCatItem('Кабели, переходники, шнуры', '48')
+		+e.title Бренды
+		+e.chb-group
+			+in-c('checkbox', 'Aixin')
+			+in-c('checkbox', 'Cheetah')
+			+in-c('checkbox', 'Innosilicon')
+			+in-c('checkbox', 'Power')
+			+in-c('checkbox', 'Bitmain')
+		+e.title Стоимость
+		+e.range-wrap
+			+range('80', '320000')
+		+e.btn-row.row
+			.col
+				+e.btn--green(type="button") Применить
+			.col
+				+e.btn--white.muted(type="button") Сбросить
+
+
+mixin filterCatItem(txt, amount, addClasses='')
+	+e.c-item(href="#" class=addClasses)
+		+e.c-txt=txt
+		+e.c-amount=amount

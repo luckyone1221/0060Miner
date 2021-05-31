@@ -1,0 +1,138 @@
+mixin sProdCard(data)
+	// start sProdCard
+	+b.SECTION.sProdCard.section#sProdCard&attributes(attributes)
+		.container
+			+titleAndFeedBack('d-lg-none mb-1 mb-md-3')
+			+e.top-row.row.gy-4
+				+e.slider-col.col-lg-5.col-xl-4
+					+e.slider-wrap
+						+e.tags
+							+e.tags-row.row
+								.col-auto
+									+e.tag(style="color: #901A1A; background-color: #F8DEDE;") топ продаж
+						.swiper-container.sProdCard-slider-js
+							.swiper-wrapper
+								+sProdCardSlide(1)
+								+sProdCardSlide(2)
+								+sProdCardSlide(1)
+								+sProdCardSlide(1)
+								+sProdCardSlide(1)
+					+e.thumb-wrap
+						.swiper-container.sProdCard-thumb-js
+							.swiper-wrapper
+								+sProdCardThumb(1)
+								+sProdCardThumb(2)
+								+sProdCardThumb(1)
+								+sProdCardThumb(1)
+								+sProdCardThumb(1)
+				.col-lg-7.col-xl-8.col-xxl
+					+e.white-box
+						+titleAndFeedBack('d-none d-lg-block')
+						+e.descr
+							p Выносливый и очень тихий серверный БП, один из наиболее подходящих БП для домашнего майнинга. Возможно сделать любую распайку, варианты и цена некоторых типовых распаек для этого БП указаны ниже.
+						+e.d-row.row
+							+e.d-col.col-xl-6.col-xxl
+								+sProdCardDescrItem('SKU:','76645')
+								+sProdCardDescrItem('Габариты','11.1 х 26 х 6 см')
+								+sProdCardDescrItem('Наличие', 'В наличии')
+									+e.val-col.col-6
+										span.text-primary В наличии
+								+sProdCardDescrItem('Выходная мощность','2320w 12v')
+							+e.d-col.col-xl-6.col-xxl
+								+sProdCardDescrItem('Производитель','Delta Electronics')
+								+sProdCardDescrItem('КПД','Gold 92%')
+								+sProdCardDescrItem('Особенности','Тихие блоки питания')
+								+sProdCardDescrItem('Входное напряжение','200-240v AC')
+						+e.select-cont.form-group
+							+e.SELECT.select.form-select
+								option(velue="Выбрать опцию" selected class="d-none") Выбрать опцию
+								option option 1
+								option option 2
+								option option 3
+						+e.gray-box
+							+e.g-row.row.align-items-center
+								.col
+									+e.price 12 999 ₽
+								.col-auto
+									//return here
+								.col-auto
+									+e.cart-btn(href="#")
+										+icon('plus')
+										span Добавить в корзину
+						+e.lower-row.row.align-items-center
+							+sProdCardLowerLink('l-heart', 'Добавить в закладки')
+							+sProdCardLowerLink('l-compare', 'Сравнить')
+			+b.tabs
+				+e.caption
+					.swiper-container.tabs-slider-js
+						.swiper-wrapper
+							.swiper-slide
+								+e.btn.active
+									span Описание
+							.swiper-slide
+								+e.btn
+									span Отзывы
+									+e.number 18
+				+e.wrap
+					+e.content.active
+						+e.txt-box
+							p 80PLUS Gold 92% - 12V 205A - 2500Вт
+							p БЛОК ОЧЕНЬ ТИХИЙ, ПОДХОДИТ ДЛЯ ДОМАШНЕГО МАЙНИНГА + ДОП ОПЦИЯ
+							p (ручная регулировка скорости вращения вентиляторов охлаждения блока, снижение шума до минимума)
+							p Размер блока питания: 270х110х85мм (БЛОК ПОДХОДИТ ДЛЯ ЗАКРЫТЫХ КОРПУСОВ)
+							p Длина кабелей : 90 см
+							p Уровень шума - ОЧЕНЬ ТИХИЙ
+							p Кабель 220v в комплекте
+							p Блок имеет защиту :
+							ul
+								li ➡ Защита от перегрузки
+								li ➡ Защита от короткого замыкания
+								li ➡ Защита от перегрева
+								li ➡ Защита от перепада напряжения
+					.tabs__content
+	// end sProdCard
+
+mixin titleAndFeedBack(displayClasses)
+	+e.title-and-fb(class=displayClasses)
+		+b.section-title
+			h1 IBM DPS-2500BB
+		+e.feedback-cont
+			+e.stars-row.row.align-items-center
+				-for (var i = 0; i < 4; i++)
+					.col-auto
+						+e.star
+							img(loading="lazy" src="img/svg/star-filled.svg" alt="")
+				.col-auto
+					+e.star
+						img(loading="lazy" src="img/svg/star-empty.svg" alt="")
+				.col
+					+e.feedback-link(href='#') (1 отзыв)
+
+mixin sProdCardLowerLink(iconName, txt)
+	.col-auto
+		+e.l-link(href="#")
+			+e.l-icon
+				img(loading="lazy" src=`img/svg/${iconName}.svg` alt="")
+			span=txt
+
+mixin sProdCardDescrItem(key, val)
+	+e.d-item-row.row.gy-1
+		+e.key-col.col-12.col-sm-6=key
+		if block
+			block
+		else
+			+e.val-col.col-12.col-sm-6=val
+
+mixin sProdCardSlide(imgNum)
+	.swiper-slide
+		+e.s-item(href=`img/@2x/prod-card-slide-${imgNum}.png` data-fancybox="prodCardSlide")
+			+e.s-backplate
+			+e.s-img
+				img(loading="lazy" src=`img/@2x/prod-card-slide-${imgNum}.png` alt="")
+
+mixin sProdCardThumb(imgNum)
+	.swiper-slide
+		+e.thumb
+			+e.t-backplate
+			+e.t-img
+				img(loading="lazy" src=`img/@2x/prod-card-slide-${imgNum}.png` alt="")

@@ -76,57 +76,29 @@ const JSCCommon = {
 	},
 	// /mobileMenu
 
-	// tabs  .
+	// tabs
 	tabscostume(tab) {
-		const tabs = document.querySelectorAll(tab);
-		// const indexOf = element => Array.from(element.parentNode.children).indexOf(element);
-		tabs.forEach(element => {
-			let tabs = element;
-			const tabsCaption = tabs.querySelector(".tabs__caption");
-			const tabsBtn = tabsCaption.querySelectorAll(".tabs__btn");
-			const tabsWrap = tabs.querySelector(".tabs__wrap");
-			const tabsContent = tabsWrap.querySelectorAll(".tabs__content");
-			const random = Math.trunc(Math.random() * 1000);
-			tabsBtn.forEach((el, index) => {
-				const data = `tab-content-${random}-${index}`;
-				el.dataset.tabBtn = data;
-				const content = tabsContent[index];
-				content.dataset.tabContent = data;
-				if (!content.dataset.tabContent == data) return;
+		let tabs = {
+			Btn: [].slice.call(document.querySelectorAll(`.${tab}__btn`)),
+			BtnParent: [].slice.call(document.querySelectorAll(`.${tab}__caption`)),
+			Content: [].slice.call(document.querySelectorAll(`.${tab}__content`)),
+		}
+		tabs.Btn.forEach((element, index) => {
+			element.addEventListener('click', () => {
+				if (!element.classList.contains('active')) {
+					//turn off old
+					let oldActiveEl = element.closest(`.${tab}`).querySelector(`.${tab}__btn.active`);
+					let oldActiveContent = tabs.Content[index].closest(`.${tab}`).querySelector(`.${tab}__content.active`);
 
-				const active = content.classList.contains('active') ? 'active' : '';
-				// console.log(el.innerHTML);
-				content.insertAdjacentHTML("beforebegin", `<div class="tabs__btn-accordion  btn btn-primary  mb-1 ${active}" data-tab-btn="${data}">${el.innerHTML}</div>`)
-			})
+					oldActiveEl.classList.remove('active');
+					oldActiveContent.classList.remove('active')
 
-
-			tabs.addEventListener('click', function (element) {
-				const btn = element.target.closest(`[data-tab-btn]:not(.active)`);
-				if (!btn) return;
-				const data = btn.dataset.tabBtn;
-				const tabsAllBtn = this.querySelectorAll(`[data-tab-btn`);
-				const content = this.querySelectorAll(`[data-tab-content]`);
-				tabsAllBtn.forEach(element => {
-					element.dataset.tabBtn == data
-						? element.classList.add('active')
-						: element.classList.remove('active')
-				});
-				content.forEach(element => {
-					element.dataset.tabContent == data
-						? (element.classList.add('active'), element.previousSibling.classList.add('active'))
-						: element.classList.remove('active')
-				});
+					//turn on new(cklicked el)
+					element.classList.add('active');
+					tabs.Content[index].classList.add('active');
+				}
 			})
 		})
-
-		// $('.' + tab + '__caption').on('click', '.' + tab + '__btn:not(.active)', function (e) {
-		// 	$(this)
-		// 		.addClass('active').siblings().removeClass('active')
-		// 		.closest('.' + tab).find('.' + tab + '__content').hide().removeClass('active')
-		// 		.eq($(this).index()).fadeIn().addClass('active');
-
-		// });
-
 	},
 	// /tabs
 
@@ -222,8 +194,8 @@ const $ = jQuery;
 function eventHandler() {
 	JSCCommon.ifie();
 	JSCCommon.modalCall();
-	JSCCommon.tabscostume('.tabs--js');
 	JSCCommon.inputMask();
+	JSCCommon.tabscostume('tabs');
 	JSCCommon.sendForm();
 	JSCCommon.heightwindow();
 	JSCCommon.animateScroll();
@@ -231,7 +203,7 @@ function eventHandler() {
 	// JSCCommon.CustomInputFile(); 
 	var x = window.location.host;
 	let screenName;
-	screenName = document.body.dataset.bg || '01.png';
+	screenName = document.body.dataset.bg || '03.png';
 	if (screenName && x.includes("localhost:30")) {
 		document.body.insertAdjacentHTML("beforeend", `<div class="pixel-perfect" style="background-image: url(screen/${screenName});"></div>`);
 	}
@@ -405,7 +377,126 @@ function eventHandler() {
 		slidesPerView: 'auto',
 		spaceBetween: 15,
 	});
+	// rangle sliders
+	function currencyFormat(num) {
+		return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ')
+	}
+	$(".range-wrap").each(function () {
+		let _this = $(this);
+		var $range= _this.find(".slider-js");
+		var $inputFrom = _this.find(".input_from");
+		var $inputTo = _this.find(".input_to");
+		var instance, from, to,
+			min = $range.data('min'),
+			max = $range.data('max');
+		$range.ionRangeSlider({
+			skin: "round",
+			type: "double",
+			grid: false,
+			grid_snap: false,
+			hide_min_max: false,
+			hide_from_to: true,
+			//here
+			onStart: updateInputs,
+			onChange: updateInputs,
+			onFinish: updateInputs
+		});
+		instance = $range.data("ionRangeSlider");
 
+		function updateInputs(data) {
+			from = data.from;
+			to = data.to;
+
+			$inputFrom.prop("value", currencyFormat(from));
+			$inputTo.prop("value", currencyFormat(to));
+			// InputFormat();
+		}
+
+		$inputFrom.on("change input ", function () {
+			var val = +($(this).prop("value").replace(/\s/g, ''));
+			// validate
+			if (val < min) {
+				val = min;
+			} else if (val > to) {
+				val = to;
+			}
+
+			instance.update({
+				from: val
+			});
+			$(this).prop("value", currencyFormat(val));
+			console.log(val)
+		});
+
+		$inputTo.on("change input ", function () {
+			var val = +($(this).prop("value").replace(/\s/g, ''));
+
+			// validate
+			if (val < from) {
+				val = from;
+			} else if (val > max) {
+				val = max;
+			}
+
+			instance.update({
+				to: val
+			});
+			$(this).prop("value", currencyFormat(val));
+		});
+
+	});
+
+	//prod card
+	let prodCardThumb = new Swiper('.sProdCard-thumb-js', {
+		slidesPerView: 'auto',
+		breakpoints:{
+			0:{
+				spaceBetween: 12,
+			},
+			576:{
+				spaceBetween: 24,
+			},
+		},
+
+		//lazy
+		lazy: {
+			loadPrevNext: true,
+			loadPrevNextAmount: 6,
+		},
+	});
+	let prodCardSlider = new Swiper('.sProdCard-slider-js', {
+		spaceBetween: 30,
+		thumbs: {
+			swiper: prodCardThumb,
+		},
+		lazy: {
+			loadPrevNext: true,
+			loadPrevNextAmount: 3,
+		},
+		loop: true,
+	});
+	//
+	let tabsSlider = new Swiper('.tabs-slider-js', {
+		slidesPerView: 'auto',
+		freeMode: true,
+		loopFillGroupWithBlank: true,
+		touchRatio: 0.2,
+		slideToClickedSlide: true,
+		freeModeMomentum: true,
+
+		breakpoints:{
+			0:{
+				spaceBetween: 32,
+			},
+			576:{
+				spaceBetween: 40,
+			},
+			1200:{
+				spaceBetween: 46,
+			},
+		},
+
+	});
 
 
 	//end luckyoneJs

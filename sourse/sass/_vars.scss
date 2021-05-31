@@ -39,15 +39,23 @@ $gray-110: #F6F6F6;
 $gray-120: #F9F9F9;
 $gray-200: #F1F1F1;
 $gray-300: #dee2e6 !default;
+$gray-320: #D1D1D1;
+$gray-350: #F5F5F5;
 $gray-400: #ced4da !default;
 $gray-500: #adb5bd !default;
 $gray-550: #C4C4C4;
+$gray-570: #A9A9A9;
 $gray-600: #878787;
 $gray-610: #636363;
+$gray-690: #535353;
 $gray-700: #4D4D4D;
+$gray-710: #4B4B4B;
+$gray-750: #404040;
 $gray-800: #343a40 !default;
+$gray-890: #292929;
 $gray-900: #212529 !default;
 $gray-920: #252525;
+$gray-980: #151515;
 $black: #000 !default;
 // scss-docs-end gray-color-variables
 
@@ -83,6 +91,7 @@ $green2: #36AF33;
 $green3: #F7FFF7;
 $green4: #4A8748;
 $green5: #BDE5BC;
+$green6: #6A983C;
 
 $teal: #20c997 !default;
 $cyan: #0dcaf0 !default;
@@ -123,6 +132,7 @@ $theme-colors: ("primary": $primary,
   "warning": $warning,
   "danger": $danger,
   "light": $light,
+  "white": $white,
   "dark": $dark) !default;
 // scss-docs-end theme-colors-map
 
@@ -398,7 +408,7 @@ $border-color: $gray-300 !default;
 // scss-docs-end border-variables
 
 // scss-docs-start border-radius-variables
-$border-radius: 2px; //++
+$border-radius: 4px; //++
 $border-radius-sm: .2rem !default;
 $border-radius-lg: .3rem !default;
 $border-radius-pill: 50rem !default;
@@ -770,9 +780,9 @@ box-shadow .15s ease-in-out !default;
 // scss-docs-end form-input-variables
 
 // scss-docs-start form-check-variables
-$form-check-input-width: 1em !default;
+$form-check-input-width: em(22) !default;
 $form-check-min-height: $font-size-base * $line-height-base !default;
-$form-check-padding-start: $form-check-input-width+.5em !default;
+$form-check-padding-start: $form-check-input-width+em(10) !default;
 $form-check-margin-bottom: .125rem !default;
 $form-check-label-color: null !default;
 $form-check-label-cursor: null !default;
@@ -780,15 +790,15 @@ $form-check-transition: null !default;
 
 $form-check-input-active-filter: brightness(90%) !default;
 
-$form-check-input-bg: $input-bg !default;
-$form-check-input-border: 1px solid rgba(0, 0, 0, .25) !default;
-$form-check-input-border-radius: .25em !default;
+$form-check-input-bg: transparent;
+$form-check-input-border: 1px solid #D1D1D1;
+$form-check-input-border-radius: em(3) !default;
 $form-check-radio-border-radius: 50% !default;
 $form-check-input-focus-border: $input-focus-border-color !default;
 $form-check-input-focus-box-shadow: $input-btn-focus-box-shadow !default;
 
 $form-check-input-checked-color: $component-active-color !default;
-$form-check-input-checked-bg-color: $component-active-bg !default;
+$form-check-input-checked-bg-color: $green4;
 $form-check-input-checked-border-color: $form-check-input-checked-bg-color !default;
 $form-check-input-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$form-check-input-checked-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/></svg>") !default;
 $form-check-radio-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#{$form-check-input-checked-color}'/></svg>") !default;
@@ -831,15 +841,15 @@ $input-group-addon-border-color: $input-border-color !default;
 // scss-docs-end input-group-variables
 
 // scss-docs-start form-select-variables
-$form-select-padding-y: $input-padding-y !default;
-$form-select-padding-x: $input-padding-x !default;
-$form-select-font-family: $input-font-family !default;
+$form-select-padding-y: rem(14.5);
+$form-select-padding-x: rem(16);
+$form-select-font-family: $mono;
 $form-select-font-size: $input-font-size !default;
 $form-select-indicator-padding: $form-select-padding-x * 3 !default; // Extra padding for background-image
 $form-select-font-weight: $input-font-weight !default;
-$form-select-line-height: $input-line-height !default;
-$form-select-color: $input-color !default;
-$form-select-bg: $input-bg !default;
+$form-select-line-height: (19/14);
+$form-select-color: $gray-600;
+$form-select-bg: $gray-110;
 $form-select-disabled-color: null !default;
 $form-select-disabled-bg: $gray-200 !default;
 $form-select-disabled-border-color: $input-disabled-border-color !default;
@@ -852,9 +862,9 @@ $form-select-feedback-icon-padding-end: $form-select-padding-x * 2.5+$form-selec
 $form-select-feedback-icon-position: center right $form-select-indicator-padding !default;
 $form-select-feedback-icon-size: $input-height-inner-half $input-height-inner-half !default;
 
-$form-select-border-width: $input-border-width !default;
+$form-select-border-width: 0;
 $form-select-border-color: $input-border-color !default;
-$form-select-border-radius: $border-radius !default;
+$form-select-border-radius: rem(4);
 $form-select-box-shadow: $box-shadow-inset !default;
 
 $form-select-focus-border-color: $input-focus-border-color !default;

@@ -1,0 +1,34 @@
+extends layout/main.pug
+
+
+include ../blocks/sContent/_sContent.pug
+include ../blocks/sContact/_sContact.pug
+include ../blocks/sCards/_sCards.pug
+include ../blocks/sDetails/_sDetails.pug
+include ../blocks/sBrends/_sBrends.pug
+include ../blocks/sFAQ/_sFAQ.pug
+include ../blocks/sPopular/_sPopular.pug
+include ../blocks/sAbout/_sAbout.pug
+include ../blocks/sHowWork/_sHowWork.pug
+include ../blocks/sBuy/_sBuy.pug
+include ../blocks/sSoc/_sSoc.pug
+include ../blocks/sCatalog/_sCatalog.pug
+
+block variables
+	- let  mainPage= 'bc-moved'
+	- let  bg= null
+
+block title
+	- let  title= '02-catalog'
+	title= title
+block pagecontent
+	+mobMenu()
+	+header()
+		+top-nav()
+	.bc-cont
+		.container
+			+breadcrumb('Главная', 'Каталог', 'Asic miners')
+	+sCatalog()
+	+sBuy()
+	+sSoc()
+	+footer()

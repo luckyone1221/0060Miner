@@ -1,10 +1,175 @@
 .footer {
-	padding: rem(50) 0;
+	padding: 31px 0 0;
 	background: linear-gradient(92.48deg, #232118 0%, rgba(24, 32, 35, 0) 100%), #182023;
-	&__{}
-	&__{}
-	&__{}
-	&__{}
+
+	&__container{
+		@include media-breakpoint-up(xxl){
+			padding: 0 21px 0 44px;
+		}
+	}
+	&__row{
+		@include roww(10px);
+		@include media-breakpoint-up(sm){
+			@include roww(16px);
+		}
+		padding-bottom: rem(35);
+		@include media-breakpoint-up(xl){
+			@include roww(30px);
+			padding-bottom: rem(63);
+		}
+		@include media-breakpoint-up(xxl){
+			@include roww(16px);
+		}
+	}
+	&__col{
+		&--1{
+		}
+		&--2{
+			@include media-breakpoint-up(xxl){
+				padding-left: 3px;
+			}
+		}
+		&--3{
+			@include media-breakpoint-up(xxl){
+				padding-left: 18px;
+			}
+		}
+		&--4{
+			@include media-breakpoint-up(xxl){
+				padding-left: 20px;
+				padding-right: 1px;
+			}
+		}
+		&--5{
+			@include media-breakpoint-up(xxl){
+				padding-left: 20px;
+			}
+		}
+	}
+	&__logo{
+		display: block;
+		width: rem(120);
+		margin-bottom: rem(20);
+
+		img{
+			width: auto;
+			height: auto;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	}
+	&__all-rights{
+		max-width: 199px;
+		color: $gray-710;
+	}
+	&__title{
+		margin-bottom: rem(20);
+		color: $gray-710;
+
+		font-size: rem(16);
+		@include media-breakpoint-up(sm){
+			font-size: rem(18);
+		}
+		line-height: (21/18);
+
+		text-transform: uppercase;
+
+		@include media-breakpoint-up(xxl){
+			margin-top: 6px;
+		}
+	}
+	&__f-menu{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		li{
+
+		}
+		a{
+			text-decoration: none;
+			color: $white;
+			&:hover{
+				color: rgba($white, .8);
+			}
+		}
+	}
+	&__tell{
+		text-decoration: none;
+		color: $white;
+		&:hover{
+			color: rgba($white, .8);
+		}
+	}
+	&__address{
+		color: $white;
+		margin-bottom: rem(13);
+	}
+	&__call-btn{
+		@extend .btn;
+		@extend .btn-white;
+		border: none!important;
+
+		color: $green!important;
+		&:hover{
+			color: $green!important;
+		}
+
+		padding: rem(8) rem(12);
+		@include media-breakpoint-up(sm){
+			padding: rem(9) rem(20);
+		}
+	}
+	&__fee-row{
+		@include roww(15px);
+		--bs-gutter-y: 18px;
+
+		@include media-breakpoint-up(sm){
+			max-width: 247px;
+		}
+	}
+	&__f-item{
+		height: 39px;
+		width: 100%;
+		background: $white;
+		border-radius: 5px;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		img{
+			width: auto;
+			height: auto;
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		&--another{
+			background: transparent;
+			font-size: rem(10);
+			line-height: 39px;
+			text-transform: uppercase;
+			color: $gray-710;
+		}
+	}
+
+	&__bot{
+		border-top: 1px solid $gray-890;
+		padding: rem(11) 0;
+	}
+	&__b-row{
+
+	}
+	&__b-link{
+		font-size: rem(10);
+		text-decoration: none;
+
+		color: $gray-690;
+		&:hover{
+			color: $gray-300;
+		}
+	}
 	&__{}
 	&__{}
 }

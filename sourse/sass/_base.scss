@@ -549,3 +549,219 @@ iframe {
 	min-width: 0;
 	min-height: 100vh;
 }
+//
+.breadcrumb{
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+
+	margin: 0;
+	padding: 0;
+
+	li{
+		&:last-child{
+			a:after{
+				content: none;
+			}
+		}
+	}
+	a{
+		text-decoration: none;
+		font-family: $mono;
+		font-size: rem(12);
+		line-height: (16/12);
+
+		color: $gray-570;
+		&:after{
+			content: '/';
+			display: inline-block;
+			margin: 0 rem(8);
+		}
+	}
+}
+.bc-cont{
+	padding: rem(13) 0;
+}
+
+//
+.green-num{
+	font-family: $mono2;
+	background: $green5;
+	color: $green4;
+
+	border-radius: rem(12);
+	font-weight: 600;
+	font-size: rem(12);
+	line-height: (18/12);
+	padding: 0 rem(8);
+}
+//checkbox
+.custom-input.form-check{
+	cursor: pointer;
+}
+.custom-input__text.form-check-label{
+	font-family: $mono;
+	font-size: rem(14);
+	line-height: (19/14);
+	color: $gray-980;
+}
+.form-check-input:checked[type=checkbox]{
+
+	background-image: url("data:image/svg+xml,%3Csvg width='14' height='10' viewBox='0 0 14 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.56006 5.85009L4.62006 8.91009L12.4401 1.09009' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+	background-size: 12px;
+}
+//catalog-page
+.bc-moved{
+	.bc-cont .container{
+		@include media-breakpoint-up(xxl){
+			padding-left: 44px;
+			padding-right: 44px;
+		}
+	}
+}
+//
+.pagination{
+	&__row{
+		@include roww(20px);
+		@include media-breakpoint-up(xl){
+			@include roww(30px);
+		}
+	}
+	&__btn-col{
+		min-width: rem(44px);
+		@include media-breakpoint-up(sm){
+			min-width: rem(56px);
+		}
+		@include media-breakpoint-up(md){
+			min-width: rem(130);
+		}
+		@include media-breakpoint-up(xl){
+			min-width: rem(170);
+		}
+		@include media-breakpoint-up(xxl){
+			min-width: rem(196);
+		}
+	}
+	&__btn{
+		@extend .btn-deep-green;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+
+		.icon{
+			font-size: 12px;
+		}
+
+		width: rem(24px);
+		height: rem(24px);
+		@include media-breakpoint-up(sm){
+			width: rem(36px);
+			height: rem(36px);
+		}
+		padding: 0;
+		@include media-breakpoint-up(md){
+			min-width: rem(110);
+			padding: rem(6) rem(10);
+			font-size: rem(14);
+		}
+		@include media-breakpoint-up(xl){
+			min-width: rem(140);
+			padding: rem(23) rem(16);
+			font-size: rem(15);
+		}
+
+		border-radius: 4px;
+		font-weight: bold;
+		line-height: (24/15);
+	}
+	&__list-col{
+		ul{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			li{
+				margin-right: rem(5);
+				@include media-breakpoint-up(sm){
+					margin-right: rem(8);
+				}
+				@include media-breakpoint-up(xl){
+					margin-right: rem(16);
+				}
+				&:last-child{
+					margin-right: 0;
+				}
+			}
+			.page-numbers{
+				@include mt();
+				text-decoration: none;
+
+				width: rem(24px);
+				height: rem(24px);
+				@include media-breakpoint-up(sm){
+					font-size: rem(16px);
+					width: rem(36px);
+					height: rem(36px);
+				}
+				@include media-breakpoint-up(xl){
+					width: rem(48);
+					height: rem(48);
+				}
+				border-radius: rem(4);
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+
+				font-family: $mono;
+				letter-spacing: 0.01em;
+
+				background: $white;
+				color: $gray-750;
+				&:hover{
+					background: $green3;
+					color: $gray-900;
+				}
+
+				&.current{
+					background: $green5!important;
+					&:hover{
+						background: $green5!important;
+					}
+					color: $green4;
+					font-weight: bold;
+				}
+
+				&--dots{
+					pointer-events: none;
+					background-color: transparent;
+					font-weight: bold;
+					font-size: rem(16);
+					line-height: (24/16);
+					letter-spacing: 0.01em;
+					color: $gray-750;
+				}
+			}
+		}
+	}
+	&__{}
+}
+//
+.btn-deep-green{
+	@extend .btn;
+	@extend .btn-primary;
+
+	color: $white!important;
+	background: $green4!important;
+	&:hover{
+		color: $white!important;
+		background: lighten($green4, 5)!important;
+	}
+}

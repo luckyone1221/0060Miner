@@ -1,3 +1,52 @@
 mixin footer()
   +b.FOOTER.footer
-    .container
+    +e.container.container
+      +e.row.row.gy-4
+        +e.col--1.col-lg.col-sm-4.col-6
+          +e.logo(href="/")
+            img(loading="lazy" src="img/svg/logo-white.svg" alt="")
+          +e.all-rights
+            span 2015-
+            span.put-curr-year-js 2021
+            |
+            | © «Асики для майнинга - купить, лучшие асики в продаже kupiminer.ru»
+        +e.col--2.col-lg.col-sm-4.col-6
+          +e.title Информация
+          +e.UL.f-menu
+            li: a(href='#') Оптовым клиентам
+            li: a(href='#') О нас
+            li: a(href='#') Связаться с нами
+            li: a(href='#') Карта сайта
+        +e.col--3.col-lg.col-sm-4.col-6
+          +e.title Категории
+          +e.UL.f-menu
+            li: a(href='#') Оптовым клиентам
+            li: a(href='#') О нас
+            li: a(href='#') Связаться с нами
+            li: a(href='#') Карта сайта
+        +e.col--4.col-lg.col-sm-4.col-6
+          +e.title Наши контакты
+          +e.tell(href='#') +7(495)010-01-01
+          +e.address Москва, ул. Ленина 1
+          +e.call-btn(href="#") Заказать звонок
+        +e.col--5.col-sm-8.col-lg-3
+          +e.title мы принимаем к оплате
+          +e.fee-row.row
+            +footerFeeItem('svg/fee-img-1.svg')
+            +footerFeeItem('@2x/fee-img-2.png')
+            +footerFeeItem('svg/fee-img-3.svg')
+            +footerFeeItem('svg/fee-img-4.svg')
+            +footerFeeItem('svg/fee-img-5.svg')
+            .col-4
+              +e.f-item--another и другое
+      +e.bot
+        +e.b-row.row.align-items-center.gy-2
+          .col-sm
+            +e.b-link(href='#') Политика конфиденциальности
+          .col-sm-auto
+            +e.b-link(href='#') Создание и разработка сайта “СиняяМалина”
+
+mixin footerFeeItem(imgPass)
+  .col-4
+    +e.f-item
+      img(loading="lazy" src=`img/${imgPass}` alt="")
