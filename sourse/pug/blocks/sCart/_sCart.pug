@@ -1,0 +1,69 @@
+mixin sCart(data)
+	// start sCart
+	+b.SECTION.sCart.section#sCart&attributes(attributes)
+		.container
+			+b.section-title
+				h1 Корзина
+			+e.main-row.row.gy-4
+				+e.l-col.col-lg-8
+					+e.items
+						+sCartItem()
+						+sCartItem()
+						+sCartItem()
+						+sCartItem()
+				.col-lg-4.col-xxl
+					+e.whtie-box
+						+e.w-title Сумма заказов
+						+e.mid-cont
+							+e.price-row.row.align-items-center.gy-2
+								.col-sm
+									+e.pr-txt Товаров на сумму
+								.col-sm-auto
+									+e.pr-price 600 000 ₽
+							+e.delivery-row.row.gy-2
+								.col-sm
+									+e.pr-txt Доставка
+								.col-sm-auto
+									+e.ways-txt Варианты доставки будут обновлены при оформлении заказа.
+						+e.bot-cont
+							+e.wb-row.row.gy-2
+								.col-sm
+									+e.res-txt Итого
+								.col-sm-auto
+									+e.rp-val 600 000 ₽
+									+e.rp-gray * без учета доставки
+							+e.b-btn(type="button") оформить заказ
+
+	// end sCart
+
+mixin sCartItem()
+	+e.item
+		+e.i-row.row.gy-3
+			+e.img-col.col-auto.align-self-center
+				+e.img(href='#')
+					img(loading="lazy" src="img/@2x/prod-card-2.png" alt="")
+			+e.descr-col.col
+				+e.name(href='#') IBM DPS-2500BB
+				+e.descr 6 карт (двойное питание карт - 12x6+2 пин) + питание райзеров + Pico PSU  (+8 000  )
+				+e.bot-row.row
+					.col-auto
+						a(href="#") В избранное
+					.col-auto
+						a(href="#") Удалить
+			+e.price-col.col-md-auto
+				.row.gy-3.text-md-end.text-xl-start.align-items-center.align-items-md-start
+					.col.col-md-12.col-xl-auto
+						+amountBox()
+					.col-auto.col-md-12.col-xl-auto
+						+e.price 19 000 ₽
+
+mixin amountBox()
+	+b.amount-box
+		+e.row.row.align-items-center
+			.col-auto
+				+e.INPUT.input.form-control(type="number" value="1" min="1" max="999")
+			.col-auto
+				+e.SELECT.select.form-select
+					option Шт
+					option Кг
+					option См

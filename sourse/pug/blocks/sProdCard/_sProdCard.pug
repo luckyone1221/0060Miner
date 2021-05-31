@@ -50,14 +50,15 @@ mixin sProdCard(data)
 								option option 2
 								option option 3
 						+e.gray-box
-							+e.g-row.row.align-items-center
-								.col
+							+e.g-row.row.align-items-center.gy-3
+								.col-md
 									+e.price 12 999 ₽
-								.col-auto
-									//return here
+								.col-sm.col-md-auto
+									+amountBox()
 								.col-auto
 									+e.cart-btn(href="#")
-										+icon('plus')
+										+e.cb-icon
+											img(loading="lazy" src="img/svg/plus.svg" alt="")
 										span Добавить в корзину
 						+e.lower-row.row.align-items-center
 							+sProdCardLowerLink('l-heart', 'Добавить в закладки')

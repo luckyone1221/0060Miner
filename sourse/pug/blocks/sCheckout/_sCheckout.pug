@@ -1,0 +1,62 @@
+mixin sCheckout(data)
+	// start sCheckout
+	+b.SECTION.sCheckout.section#sCheckout&attributes(attributes)
+		+e.container.container
+			+b.section-title
+				h1 Оформление заказа
+			+e.main-row.row
+				+e.l-col.col-lg-6
+					+e.green-box
+						| Оплата производится при получении товара. После оформления заказа, наш менеджер свяжится с Вами и уточнит все детали.
+						+e.g-img
+							img(loading="lazy" src="img/svg/green-bitcoin.svg" alt="")
+					+e.white-box
+						+e.w-title Контактная информация
+						+e.w-inputs
+							+input('', 'text', 'ФИО получателя', 'username', 'required-inp')(require)
+							+input('+0 (000) 000 00 00', 'tel', 'Телефон', 'required-inp', 'required-inp')(require)
+							+input('', 'email', 'E-mail', 'required-inp', 'required-inp')(require)
+					+e.comment-txt Комментарии к заказу
+					+e.ta-box
+						+input('Комментарии к заказу', 'textarea', undefined, 'comment')
+				.col-lg-6.col-xxl
+					+e.content
+						+e.c-title
+							span Содержимое заказа (
+							span.text-primary
+								| 4
+								|
+							span товара)
+						+e.c-items
+							-for(var i = 0; i < 4; i++)
+								+sCheckoutItem()
+						+e.c-bot
+							+e.c-res-row.row.align-items-center.gy-2
+								+e.cr-txt.col-sm Итого к оплате:
+								+e.cr-price.col-sm-auto 4100 ₽
+							+e.btn-cont
+								+e.green-btn(type="button") оформить заказ
+							+e.policy.text-center
+								| Нажимая на кнопку «Оформить заказ», вы соглашаетесь с
+								a(href="#")
+									| Политикой в отношении обработки персональных данных
+									|
+								| и принимаете условия
+								|
+								a(href='#') Оферты.
+
+	// end sCheckout
+
+mixin sCheckoutItem()
+	+e.c-item
+		+e.c-row.row.gy-3
+			.col-auto
+				+e.c-img
+					img(loading="lazy" src="img/@2x/prod-card-2.png" alt="")
+			.col
+				+e.c-descr
+					p IBM DPS-2500BB
+					p 6 карт (двойное питание карт - 12x6+2 пин) + питание райзеров + Pico PSU  (+8 000  )
+				+e.c-black-row.row
+					.col-auto 1 шт.
+					.col-auto 1,300 ₽

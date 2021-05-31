@@ -2,3 +2,5 @@
 1. <https://luckyone1221.github.io/0060Miner/public/index.html>
 1. <https://luckyone1221.github.io/0060Miner/public/02-catalog.html>
 1. <https://luckyone1221.github.io/0060Miner/public/03-prod-card.html>
+1. <https://luckyone1221.github.io/0060Miner/public/04-cart.html>
+1. <https://luckyone1221.github.io/0060Miner/public/05-checkout.html>

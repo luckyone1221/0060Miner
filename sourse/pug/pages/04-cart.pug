@@ -15,6 +15,7 @@ include ../blocks/sSoc/_sSoc.pug
 include ../blocks/sCatalog/_sCatalog.pug
 include ../blocks/sProdCard/_sProdCard.pug
 include ../blocks/sBuyWith/_sBuyWith.pug
+include ../blocks/sCheckout/_sCheckout.pug
 include ../blocks/sCart/_sCart.pug
 
 block variables
@@ -22,7 +23,7 @@ block variables
 	- let  bg= null
 
 block title
-	- let  title= '03-prod-card'
+	- let  title= '04-cart'
 	title= title
 block pagecontent
 	+mobMenu()
@@ -30,8 +31,7 @@ block pagecontent
 		+top-nav()
 	.bc-cont
 		.container
-			+breadcrumb('Главная', 'Каталог', 'Asic miners')
-	+sProdCard()
-	+sBuyWith()
+			+breadcrumb('Главная', 'Корзина')
+	+sCart()
 	+sSoc()
 	+footer()

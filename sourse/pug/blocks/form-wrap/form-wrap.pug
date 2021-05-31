@@ -3,7 +3,7 @@ mixin form-head()
 		input(class="order", name='order', type='hidden', value=`Заявка  с сайта`) 
 		block
 
-mixin input(placeholder,  t='text', label, name= t)
+mixin input(placeholder,  t='text', label, name= t, inpWrapClasses='')
 	mixin t(t='text',placeholder, name= t)
 		if t== "textarea"
 			+e.TEXTAREA.input.form-control(name=name placeholder=placeholder)
@@ -19,7 +19,7 @@ mixin input(placeholder,  t='text', label, name= t)
 			+e.INPUT.input.form-control(name=name type=t placeholder=placeholder step='any')
 		else
 			+e.INPUT.input.form-control(name=name type=t placeholder=placeholder)
-	+e.input-wrap.form-group
+	+e.input-wrap.form-group(class=inpWrapClasses)
 		if label
 			label
 				+e.SPAN.input-title= label
