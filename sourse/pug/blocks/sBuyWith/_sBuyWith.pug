@@ -2,8 +2,19 @@ mixin sBuyWith(data)
 	// start sBuyWith
 	+b.SECTION.sBuyWith.section#sBuyWith&attributes(attributes)
 		.container
-			+b.section-title.text-center
-				h2 sBuyWith
-				
-			.row
+			+b.section-title
+				h2 С этим также покупают
+			.sPopular__slider-wrap
+				.swiper-container.sPopular-slider-js
+					.swiper-wrapper
+						-for(var i = 0; i < 4; i++)
+							.swiper-slide
+								+prodCard({
+									bpType: '1',
+									tag: true,
+									title: 'IBM DPS-2500BB',
+									imgNum: '2',
+									grayTxt: '2500Вт',
+									price: '12 999 ₽',
+								})
 	// end sBuyWith

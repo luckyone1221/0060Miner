@@ -14,6 +14,7 @@ include ../blocks/sBuy/_sBuy.pug
 include ../blocks/sSoc/_sSoc.pug
 include ../blocks/sCatalog/_sCatalog.pug
 include ../blocks/sProdCard/_sProdCard.pug
+include ../blocks/sBuyWith/_sBuyWith.pug
 
 block variables
 	- let  mainPage= 'bc-moved'
@@ -30,6 +31,6 @@ block pagecontent
 		.container
 			+breadcrumb('Главная', 'Каталог', 'Asic miners')
 	+sProdCard()
-	//-+sBuy()
+	+sBuyWith()
 	+sSoc()
 	+footer()
