@@ -6,10 +6,61 @@
 
 	position: relative;
 	z-index: 2;
-	&__main-row{
-		@include roww(rem(16));
-		--bs-gutter-y: #{rem(14)};
+	//&__main-row{
+	//	@include roww(rem(16));
+	//	--bs-gutter-y: #{rem(14)};
+	//}
+
+	//slider-wrap
+	&__slider-wrap{
+		.swiper-container{
+			overflow: visible!important;
+		}
+		.swiper-wrapper{
+			overflow: visible!important;
+
+			@include media-breakpoint-up(lg){
+				transform: none!important;
+				flex-wrap: wrap!important;
+				@include roww(rem(16));
+			}
+		}
+		.swiper-slide{
+			height: auto;
+			@include media-breakpoint-up(lg){
+				margin: 0 0 16px!important;
+			}
+		}
 	}
+	&__big-slide{
+		display: flex;
+		flex-direction: column;
+
+		width: 90%;
+		@include media-breakpoint-up(lg){
+			//width: calc(100% *2/3);
+			width: 100%;
+			flex-direction: row;
+		}
+		@include media-breakpoint-up(xl){
+			flex-direction: column;
+			width: 50%;
+		}
+	}
+	&__small-slide{
+		width: 320px;
+		@include media-breakpoint-up(sm){
+			width: calc(100% / 2);
+		}
+		@include media-breakpoint-up(lg){
+			width: calc(100% / 3);
+		}
+		@include media-breakpoint-up(xl){
+			width: 25%;
+		}
+	}
+
+	//
 	&__txt-col{
 		@include media-breakpoint-up(lg){
 			display: flex;

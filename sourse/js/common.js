@@ -372,6 +372,7 @@ function eventHandler() {
 			}
 		})
 	}
+
 	//
 	let sPopularSlider = new Swiper('.sPopular-slider-js', {
 		slidesPerView: 'auto',
@@ -497,6 +498,7 @@ function eventHandler() {
 		},
 
 	});
+	//.sDetails-slider-js
 
 
 	//end luckyoneJs

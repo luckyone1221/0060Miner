@@ -53,47 +53,55 @@ mixin sDetails(data)
 					ballClasses: 'bal-6 align-items-center',
 					imgNum: 6,
 				})
-			+e.prod-row.row
+			//
+			+e.slider-wrap
+				.swiper-container.sPopular-slider-js
+					.swiper-wrapper
+						.swiper-slide
+							+prodCard({
+								bpType: '1',
+								tag: true,
+								title: 'Комплект кабелей для блока питания под асики 5x6Pin',
+								titleSm: true,
+								imgNum: '4',
+								grayTxt: undefined,
+								price: '999 ₽',
+							})
+						.swiper-slide
+							+prodCard({
+								bpType: '1',
+								tag: true,
+								title: 'Вентилятор JAMICON 120 мм 0,5A',
+								titleSm: true,
+								imgNum: '5',
+								grayTxt: undefined,
+								price: '599 ₽',
+							})
+						.swiper-slide
+							+prodCard({
+								bpType: '1',
+								tag: true,
+								title: 'Решетка для вентилятора 120х120мм',
+								titleSm: true,
+								imgNum: '6',
+								grayTxt: undefined,
+								price: '12 999 ₽',
+							})
+						.swiper-slide
+							+prodCard({
+								bpType: '1',
+								tag: true,
+								title: 'Переходник Sata - Molex',
+								titleSm: true,
+								imgNum: '7',
+								grayTxt: undefined,
+								price: '149 ₽',
+							})
+			//-+e.prod-row.row
 				.col-sm-6.col-xl-3
-					+prodCard({
-						bpType: '1',
-						tag: true,
-						title: 'Комплект кабелей для блока питания под асики 5x6Pin',
-						titleSm: true,
-						imgNum: '4',
-						grayTxt: undefined,
-						price: '999 ₽',
-					})
 				.col-sm-6.col-xl-3
-					+prodCard({
-						bpType: '1',
-						tag: true,
-						title: 'Вентилятор JAMICON 120 мм 0,5A',
-						titleSm: true,
-						imgNum: '5',
-						grayTxt: undefined,
-						price: '599 ₽',
-					})
 				.col-sm-6.col-xl-3
-					+prodCard({
-						bpType: '1',
-						tag: true,
-						title: 'Решетка для вентилятора 120х120мм',
-						titleSm: true,
-						imgNum: '6',
-						grayTxt: undefined,
-						price: '12 999 ₽',
-					})
 				.col-sm-6.col-xl-3
-					+prodCard({
-						bpType: '1',
-						tag: true,
-						title: 'Переходник Sata - Molex',
-						titleSm: true,
-						imgNum: '7',
-						grayTxt: undefined,
-						price: '149 ₽',
-					})
 	// end sDetails
 
 mixin sDetailsItem(data)

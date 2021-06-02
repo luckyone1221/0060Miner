@@ -494,7 +494,8 @@ function eventHandler() {
 				spaceBetween: 46
 			}
 		}
-	}); //end luckyoneJs
+	}); //.sDetails-slider-js
+	//end luckyoneJs
 }
 
 ;

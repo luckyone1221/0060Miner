@@ -21,6 +21,27 @@
 			margin-bottom: var(--bs-gutter-y);
 		}
 	}
+	//
+	&__slider-wrap{
+		flex-grow: 1;
+		margin-bottom: var(--bs-gutter-y);
+		.swiper-container{
+			overflow: visible!important;
+		}
+		.swiper-wrapper{
+
+		}
+		.swiper-slide{
+			height: auto;
+
+			width: 320px;
+			@include media-breakpoint-up(sm){
+				width: calc(100%/2 - 15px * 1/2) ;
+			}
+		}
+	}
+
+
 	&__r-col{
 		display: flex;
 	}

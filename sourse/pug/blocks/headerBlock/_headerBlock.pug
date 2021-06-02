@@ -4,25 +4,30 @@ mixin headerBlock()
 		.container
 			+e.main-row.row
 				+e.l-col.col-xl-6
-					+e.sub-row--left.row
+					+e.slider-wrap
+						.swiper-container.sPopular-slider-js
+							.swiper-wrapper
+								.swiper-slide
+									+prodCard({
+										bpType: 'empty',
+										tag: true,
+										title: 'Antminer S19 95TH/s',
+										imgNum: '1',
+										grayTxt: '3250W',
+										price: '920 000 ₽',
+									})
+								.swiper-slide
+									+prodCard({
+										bpType: 'empty',
+										tag: true,
+										title: 'Antminer S19 95TH/s',
+										imgNum: '1',
+										grayTxt: '3250W',
+										price: '920 000 ₽',
+									})
+					//-+e.sub-row--left.row
 						.col-sm-6
-							+prodCard({
-								bpType: 'empty',
-								tag: true,
-								title: 'Antminer S19 95TH/s',
-								imgNum: '1',
-								grayTxt: '3250W',
-								price: '920 000 ₽',
-							})
 						.col-sm-6
-							+prodCard({
-								bpType: 'empty',
-								tag: true,
-								title: 'Antminer S19 95TH/s',
-								imgNum: '1',
-								grayTxt: '3250W',
-								price: '920 000 ₽',
-							})
 					+e.big-btn(href='#') Посмотреть весь каталог майнеров
 				+e.r-col.col-xl-6
 					+e.sub-row.row
