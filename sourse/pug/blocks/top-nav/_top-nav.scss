@@ -1,6 +1,8 @@
 .top-nav {
 	position: relative;
 	z-index: 1000;
+	background-color: $white;
+
 	&__top{
 		padding: rem(25) 0;
 		border-bottom: 1px solid $light;
@@ -588,6 +590,7 @@
 		width: 340px;
 		max-width: calc(100vw - 20px);
 		padding: 0 0 20px 0;
+		height: calc((var(--vh, 1vh) * 100) - var(--top-nav-height));
 	}
 	&__catalog-items{
 

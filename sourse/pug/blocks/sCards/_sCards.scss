@@ -61,8 +61,12 @@
 		}
 	}
 	&__c-img{
-		width: rem(220);
-		height: rem(220);
+		width: rem(160);
+		height: rem(160);
+		@include media-breakpoint-up(sm){
+			width: rem(220);
+			height: rem(220);
+		}
 		position: relative;
 		z-index: 1;
 

@@ -1,7 +1,6 @@
 // start .header
 .header {
-	background-color: $white;
-
+	padding: 0!important;
 	@include media-breakpoint-up(lg){
 		box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.08);
 	}

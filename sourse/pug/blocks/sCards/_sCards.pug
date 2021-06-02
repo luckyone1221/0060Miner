@@ -5,13 +5,13 @@ mixin sCards(data)
 			+e.main-row.row
 				+e.txt-col.col-xl-6
 					+e.card
-						+e.c-row.row.align-items-center
-							.col
+						+e.c-row.row.align-items-center.gy-3
+							.col-sm
 								+e.title
 									h2 Блоки питания
 									p Обеспечивают работу всех установленных плат, защищают оборудование от перепадов напряжения, перегрева, преждевременных поломок.
 									a(href='#') Перейти в каталог блоков питания
-							.col-auto
+							.col-sm-auto
 								+e.c-img
 									img(loading="lazy" src="img/@2x/sCards-ps.png" alt="")
 									+e.c-ball(style="background-color: #EFEBD9")

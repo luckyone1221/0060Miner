@@ -623,6 +623,9 @@ iframe {
 	}
 	&__btn-col{
 		min-width: rem(44px);
+		@media (min-width: 360px) and (max-width: 576px) {
+			min-width: rem(50px);
+		}
 		@include media-breakpoint-up(sm){
 			min-width: rem(56px);
 		}
@@ -649,6 +652,10 @@ iframe {
 
 		width: rem(24px);
 		height: rem(24px);
+		@media (min-width: 360px) and (max-width: 576px) {
+			width: rem(30px);
+			height: rem(30px);
+		}
 		@include media-breakpoint-up(sm){
 			width: rem(36px);
 			height: rem(36px);
@@ -681,6 +688,9 @@ iframe {
 
 			li{
 				margin-right: rem(5);
+				@media (min-width: 360px) and (max-width: 576px) {
+					margin-right: rem(6.5);
+				}
 				@include media-breakpoint-up(sm){
 					margin-right: rem(8);
 				}
@@ -697,6 +707,10 @@ iframe {
 
 				width: rem(24px);
 				height: rem(24px);
+				@media (min-width: 360px) and (max-width: 576px) {
+					width: rem(30px);
+					height: rem(30px);
+				}
 				@include media-breakpoint-up(sm){
 					font-size: rem(16px);
 					width: rem(36px);

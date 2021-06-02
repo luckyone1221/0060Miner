@@ -289,52 +289,77 @@
 } // end.sCart
 
 .amount-box{
+	//display: inline-block;
+	//background: $gray-110;
+	//border-radius: rem(4);
+	//padding: 14px 18px 14px 10px;
+	//
+	//&__row{
+	//	@include roww(20px);
+	//
+	//	//20
+	//	& > *{
+	//		border-right: 1px solid $gray-570;
+	//		&:last-child{
+	//			border-right: none;
+	//		}
+	//	}
+	//}
+	//&__input{
+	//	padding: 0;
+	//	border-radius: 0;
+	//	background-color: transparent!important;
+	//	border: none!important;
+	//	box-shadow: none!important;
+	//	text-align: center;
+	//
+	//	font-family: $mono;
+	//	font-size: rem(14);
+	//	line-height: (20/14);
+	//	width: 28px;
+	//	margin-right: -8px;
+	//	color: $black;
+	//}
+	//&__select{
+	//	border-radius: 0;
+	//	box-shadow: none!important;
+	//	padding: 0 16px 0 5px;
+	//	background-position-x: 100%;
+	//	background-size: 12px;
+	//	background-repeat: no-repeat;
+	//	background-image: url(../img/svg/sm-chevron-down.svg);
+	//
+	//	font-weight: 500;
+	//	font-size: rem(12);
+	//	line-height: (20/12);
+	//	color: $gray-980;
+	//}
+
+	width: 107px;
 	display: inline-block;
-	background: $gray-110;
-	border-radius: rem(4);
-	padding: 14px 18px 14px 10px;
-
-	&__row{
-		@include roww(20px);
-
-		//20
-		& > *{
-			border-right: 1px solid $gray-570;
-			&:last-child{
-				border-right: none;
-			}
-		}
-	}
-	&__input{
-		padding: 0;
-		border-radius: 0;
-		background-color: transparent!important;
-		border: none!important;
-		box-shadow: none!important;
-		text-align: center;
-
-		font-family: $mono;
-		font-size: rem(14);
-		line-height: (20/14);
-		width: 28px;
-		margin-right: -8px;
-		color: $black;
-	}
+	height: auto;
+	position: relative;
 	&__select{
-		border-radius: 0;
-		box-shadow: none!important;
-		padding: 0 16px 0 5px;
-		background-position-x: 100%;
+		background-image: none;
+	}
+	&__val-mark{
+		text-align: left!important;
+		pointer-events: none;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 0;
+		width: 66px;
+		height: 20px;
+		border-left: 1px solid $gray-570;
+		padding-left: 16px;
+
+
+		background-position-x: calc(100% - 8px);
+		background-position-y: center;
 		background-size: 12px;
 		background-repeat: no-repeat;
 		background-image: url(../img/svg/sm-chevron-down.svg);
-
-		font-weight: 500;
-		font-size: rem(12);
-		line-height: (20/12);
-		color: $gray-980;
 	}
-
-	&__{}
 	&__{}
 }

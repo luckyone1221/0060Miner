@@ -154,6 +154,39 @@
 	display: flex;
 	flex-direction: column;
 
+	position: relative;
+	z-index: 1;
+	&:before,
+	&:after{
+		@include mt();
+		content: '';
+		position: absolute;
+		left: 24px;
+		width: calc(100% - 48px);
+		height: 11px;
+	}
+	&:before{
+		bottom: 0px;
+		z-index: 2;
+		background-color: $white;
+	}
+	&:after{
+		opacity: 0;
+		bottom: -3px;
+		background: $green;
+		border-radius: rem(24);
+	}
+
+
+	&:hover{
+		&:after{
+			opacity: 1;
+		}
+
+		--title-col: #{$green};
+	}
+
+
 	&__img-box{
 		width: 100%;
 		height: rem(265);
@@ -231,8 +264,6 @@
 			background-size: contain;
 		}
 	}
-
-
 	&__img{
 		min-height: 100%;
 
@@ -258,10 +289,7 @@
 		line-height: (21/18);
 		//text-transform: uppercase;
 
-		color: $black;
-		&:hover{
-			color: $primary;
-		}
+		color: var(--title-col, #{$black});
 
 		//
 		&--sm{

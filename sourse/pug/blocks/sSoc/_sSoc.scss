@@ -14,10 +14,14 @@
 	position: relative;
 	z-index: 1;
 	&__bg{
+		@include mt();
 		position: absolute;
 		z-index: -1;
 		left: 36px;
-		bottom: -40px;
+		bottom: -35px;
+		&:hover{
+			bottom: -20px;
+		}
 	}
 	&__container{
 
