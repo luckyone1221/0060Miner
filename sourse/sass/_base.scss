@@ -558,6 +558,12 @@ iframe {
 				content: none;
 			}
 		}
+
+		&.active{
+			a{
+				color: $body-color;
+			}
+		}
 	}
 	a{
 		text-decoration: none;

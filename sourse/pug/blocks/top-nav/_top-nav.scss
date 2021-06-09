@@ -458,7 +458,7 @@
 		flex-wrap: wrap;
 		align-items: stretch;
 	}
-	&__item{
+	.catalog-dd-item{
 		text-decoration: none;
 
 		@include mt();
@@ -474,33 +474,34 @@
 			--link-txt-col: #{$green2};
 			background-color: $green3;
 		}
-	}
-	&__img{
-		flex-shrink: 0;
-		width: 30px;
-		height: 30px;
-		margin-right: 8px;
-		background: $gray-110;
-		border-radius: 4px;
 
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 4px;
+		&__img{
+			flex-shrink: 0;
+			width: 30px;
+			height: 30px;
+			margin-right: 8px;
+			background: $gray-110;
+			border-radius: 4px;
 
-		img{
-			width: auto;
-			height: auto;
-			max-width: 100%;
-			max-height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 4px;
+
+			img{
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
 		}
-	}
-	&__txt{
-		font-family: $mono;
-		font-size: rem(15px);
-		line-height: 1;
+		&__txt{
+			font-family: $mono;
+			font-size: rem(15px);
+			line-height: 1;
 
-		color: var(--link-txt-col, #{$black});
+			color: var(--link-txt-col, #{$black});
+		}
 	}
 	//burger
 	&__{}
@@ -595,7 +596,8 @@
 	&__catalog-items{
 
 	}
-	&__item{
+
+	.catalog-dd-item {
 		width: 100%;
 		text-decoration: none;
 
@@ -607,37 +609,38 @@
 
 		--link-txt-col: #{$black};
 		background-color: $white;
-		&:hover{
+
+		&:hover {
 			--link-txt-col: #{$green2};
 			background-color: $green3;
 		}
-	}
-	&__img{
-		flex-shrink: 0;
-		width: 30px;
-		height: 30px;
-		margin-right: 8px;
-		background: $gray-110;
-		border-radius: 4px;
+		&__img{
+			flex-shrink: 0;
+			width: 30px;
+			height: 30px;
+			margin-right: 8px;
+			background: $gray-110;
+			border-radius: 4px;
 
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 4px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 4px;
 
-		img{
-			width: auto;
-			height: auto;
-			max-width: 100%;
-			max-height: 100%;
+			img{
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
 		}
-	}
-	&__txt{
-		font-family: $mono;
-		font-size: rem(15px);
-		line-height: 1;
+		&__txt{
+			font-family: $mono;
+			font-size: rem(15px);
+			line-height: 1;
 
-		color: var(--link-txt-col, #{$black});
+			color: var(--link-txt-col, #{$black});
+		}
 	}
 
 	//gray-links

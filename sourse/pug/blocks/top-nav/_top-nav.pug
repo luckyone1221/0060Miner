@@ -120,7 +120,7 @@ mixin catalogDD()
 			+catalogDDItem('1', 'Видеокарты')
 
 mixin catalogDDItem(imgNum, txt)
-	+e.item(href='#')
+	+b.catalog-dd-item(href='#')
 		+e.img
 			img(loading="lazy" src=`img/svg/catalog-${imgNum}.svg` alt="")
 		+e.txt=txt
